@@ -5,7 +5,7 @@ import { Welcome } from '../index';
 import { CustomDrawer } from '../index';
 import { Styleguide } from '../index';
 
-import 'navigation/guidesToLoad';
+import '../../../styleguidesToLoad';
 
 const components = Styleguide.uiComponents();
 

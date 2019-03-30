@@ -6,6 +6,7 @@ import {
 import { DrawerItems } from 'react-navigation';
 import capitalize from 'lodash.capitalize';
 import filter from 'lodash.filter';
+import findIndex from 'lodash.findindex';
 import forEach from 'lodash.foreach';
 import map from 'lodash.map';
 import groupBy from 'lodash.groupby';
@@ -55,39 +56,55 @@ function ComponentsGroup(hierarchy, props, isFiltering) {
     activeItemKey: currentRoute
   } = props;
 
-  return map(hierarchy, (parentGroup, parentName) => (
-    <Section
-      key={`parent-item-${parentName}`}
-      shouldCollapse={!isFiltering}
-      title={capitalize(parentName)}
-    >
+  return map(hierarchy, (parentGroup, parentName) => {
+    let intoCurrentRoute = false;
+    const parentGroupArr = Object.values(parentGroup);
 
-      {map(parentGroup, (componentItem, groupName) => (
-        <Section
-          key={`group-item-${groupName}`}
-          title={groupName}
-          sectionColor={COLORS.mediumGray}
-          sectionHeight={30}
-          sectionFontSize={18}
-          levelPosition={2}
-          shouldCollapse={!isFiltering}
-        >
-          {map(componentItem, ({ key, title, routeName }) => (
-            <ItemComponent
-              hasPadding
-              key={`view-item-${key}`}
-              isActive={currentRoute === key}
-              title={title}
-              onPress={() => {
-                storeLastRoute(routeName);
-                props.navigation.navigate({ routeName })
-              }}
-            />
-          ))}
-        </Section>
-      ))}
-    </Section>
-  ));
+    forEach(parentGroupArr, (group) => {
+      if (findIndex(group, { routeName: currentRoute }) > -1) {
+        intoCurrentRoute = true;
+        return false;
+      }
+    });
+
+    return (
+      <Section
+        key={`parent-item-${parentName}`}
+        shouldCollapse={!isFiltering && !intoCurrentRoute}
+        title={capitalize(parentName)}
+      >
+
+        {map(parentGroup, (componentItem, groupName) => {
+          const intoCurrentGroup = findIndex(componentItem, { routeName: currentRoute }) > -1;
+
+          return (
+            <Section
+              key={`group-item-${groupName}`}
+              title={groupName}
+              sectionColor={COLORS.mediumGray}
+              sectionHeight={30}
+              sectionFontSize={18}
+              levelPosition={2}
+              shouldCollapse={!isFiltering && !intoCurrentGroup}
+            >
+              {map(componentItem, ({ key, title, routeName }) => (
+                <ItemComponent
+                  hasPadding
+                  key={`view-item-${key}`}
+                  isActive={currentRoute === key}
+                  title={title}
+                  onPress={() => {
+                    storeLastRoute(routeName);
+                    props.navigation.navigate({ routeName })
+                  }}
+                />
+              ))}
+            </Section>
+          );
+        })}
+      </Section>
+    );
+  });
 }
 
 export class CustomDrawer extends Component {
