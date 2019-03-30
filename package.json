@@ -1,0 +1,60 @@
+{
+  "name": "StyleguideSystem",
+  "version": "0.0.3",
+  "main": "./index.js",
+  "keywords": [
+    "Styleguide",
+    "Storybook like",
+    "UI preview"
+  ],
+  "scripts": {
+    "styleguide": "STYLEGUIDE=STYLEGUIDE react-native start --reset-cache",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "jest": "jest --colors",
+    "jest-watch": "jest --colors --watchAll",
+    "jest-update": "jest --colors -u"
+  },
+  "peerDependencies": {
+    "react": "16.6.3",
+    "react-native": "0.57.8"
+  },
+  "dependencies": {
+    "styled-components": "^3.2.5",
+    "react-navigation": "2.11.2",
+    "lodash.capitalize": "^4.2.1",
+    "lodash.clone": "^4.5.0",
+    "lodash.filter": "^4.6.0",
+    "lodash.findindex": "^4.6.0",
+    "lodash.foreach": "^4.5.0",
+    "lodash.groupby": "^4.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-bridge": "^1.12.11",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-runtime": "7.0.0-beta.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jest": "^21.15.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react-native": "^3.2.1",
+    "jest": "^23.4.2",
+    "jest-html-reporter": "2.0.0",
+    "jest-react-native": "^18.0.0",
+    "jest-styled-components": "^5.0.1",
+    "metro-react-native-babel-preset": "^0.51.1",
+    "prop-types": "^15.6.1",
+    "react-dom": "^16.3.0-alpha.1",
+    "react-test-renderer": "16.6.3"
+  }
+}
