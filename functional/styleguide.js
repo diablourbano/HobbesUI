@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
+import { DrawerActions } from 'react-navigation-drawer';
+import * as styled from '../ui/styles';
+import { COLORS } from '../utils/variables';
 
 const components = [];
 
@@ -28,7 +32,21 @@ function guideSystem (config) {
     };
 
     render() {
-      return component;
+      return (
+        <View>
+          {component}
+
+          <styled.ButtonView>
+            <styled.SliderButton
+              title=">"
+              color={COLORS.snowWhite}
+              onPress={() => {
+                this.props.navigation.dispatch(DrawerActions.toggleDrawer());
+              }}
+            />
+          </styled.ButtonView>
+        </View>
+      );
     }
   }
 };

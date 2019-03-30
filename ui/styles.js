@@ -110,3 +110,18 @@ export const FilterComps = styled.TextInput`
   border-bottom-width: 1px;
   border-bottom-color: ${COLORS.mediumGray};
 `;
+
+export const SliderButton = styled.Button`
+  color: ${COLORS.snowWhite};
+  height: 100px;
+  width: 300px;
+  margin: 0;
+`;
+
+export const ButtonView = styled.View`
+  background-color: ${COLORS.mediumGrayTransparent};
+  left: 0;
+  padding: 0;
+  position: absolute;
+  top: 500;
+`;
