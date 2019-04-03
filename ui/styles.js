@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
-import { SafeAreaView, TouchableOpacity } from 'react-navigation';
+import { SafeAreaView } from 'react-navigation';
 import { COLORS } from '../utils/variables';
 
 export const MainContainer = styled(SafeAreaView)`

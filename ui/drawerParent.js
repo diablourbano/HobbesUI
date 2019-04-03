@@ -12,13 +12,18 @@ class DrawerSection extends Component {
     const { shouldCollapse } = this.props;
 
     if (shouldCollapse !== prevShouldCollapse) {
-      this.setState({ isCollapsed: shouldCollapse });
+      this.setCollapsedTo(shouldCollapse);
     }
   }
 
   toggleCollapsed = () => {
-    this.setState({ isCollapsed: !this.state.isCollapsed });
+    const { isCollapse: wasCollapsed } = this.state;
+    this.setCollapsedTo(!wasCollapsed);
   };
+
+  setCollapsedTo(state) {
+    this.setState({ isCollapsed: state });
+  }
 
   render() {
     const {

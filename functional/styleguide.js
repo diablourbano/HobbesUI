@@ -6,6 +6,35 @@ import { COLORS } from '../utils/variables';
 
 const components = [];
 
+function guideSystem(config) {
+  const { title, component } = config;
+
+  return class StyleguideSystem extends Component {
+    static navigationOptions = {
+      drawerLabel: title,
+    };
+
+    render() {
+      const { navigation } = this.props;
+      return (
+        <View>
+          {component}
+
+          <styled.ButtonView>
+            <styled.SliderButton
+              title=">"
+              color={COLORS.snowWhite}
+              onPress={() => {
+                navigation.dispatch(DrawerActions.toggleDrawer());
+              }}
+            />
+          </styled.ButtonView>
+        </View>
+      );
+    }
+  };
+}
+
 export const Styleguide = {
   add: (config) => {
     const { id, group, title, parent } = config;
@@ -21,32 +50,4 @@ export const Styleguide = {
   uiComponents: () => {
     return components;
   },
-}
-
-function guideSystem (config) {
-  const { title, component } = config;
-
-  return class StyleguideSystem extends Component {
-    static navigationOptions = {
-      drawerLabel: title,
-    };
-
-    render() {
-      return (
-        <View>
-          {component}
-
-          <styled.ButtonView>
-            <styled.SliderButton
-              title=">"
-              color={COLORS.snowWhite}
-              onPress={() => {
-                this.props.navigation.dispatch(DrawerActions.toggleDrawer());
-              }}
-            />
-          </styled.ButtonView>
-        </View>
-      );
-    }
-  }
 };

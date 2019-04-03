@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
 import * as styled from './styles';
 
@@ -32,4 +31,4 @@ export class Welcome extends Component {
       </styled.MainContainer>
     );
   }
-};
+}

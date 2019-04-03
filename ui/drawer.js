@@ -3,7 +3,6 @@ import {
   ScrollView,
   AsyncStorage,
 } from 'react-native';
-import { DrawerItems } from 'react-navigation';
 import capitalize from 'lodash.capitalize';
 import filter from 'lodash.filter';
 import findIndex from 'lodash.findindex';
@@ -16,7 +15,7 @@ import { COLORS } from '../utils/variables';
 import Section from './drawerParent';
 import * as styled from './styles';
 
-storeLastRoute = async (currentRoute) => {
+const storeLastRoute = async (currentRoute) => {
   try {
     await AsyncStorage.setItem('LAST_ROUTE', currentRoute);
   } catch (error) {
@@ -24,37 +23,37 @@ storeLastRoute = async (currentRoute) => {
   }
 };
 
-retrieveLastRoute = async (currentRoute, navigation) => {
+const retrieveLastRoute = async (currentRoute, navigation) => {
   try {
     const value = await AsyncStorage.getItem('LAST_ROUTE');
     const lastRoute = value || STYLEGUIDE_SYSTEM;
 
     if (currentRoute !== lastRoute) {
-      navigation.navigate({ routeName: lastRoute })
+      navigation.navigate({ routeName: lastRoute });
     }
   } catch (error) {
+    console.log({ error }); // eslint-disable-line no-console
   }
 };
 
 function ItemComponent(props) {
+  const { hasPadding, onPress, isActive, title } = props;
   return (
     <styled.Item
-      hasPadding={props.hasPadding}
-      onPress={props.onPress}
+      hasPadding={hasPadding}
+      onPress={onPress}
     >
       <styled.ItemList
-        isActive={props.isActive}
+        isActive={isActive}
       >
-        {props.title} {props.isActive ? '•' : ''}
+        {title} {isActive ? '•' : ''}
       </styled.ItemList>
     </styled.Item>
   );
 }
 
 function ComponentsGroup(hierarchy, props, isFiltering) {
-  const {
-    activeItemKey: currentRoute
-  } = props;
+  const { activeItemKey: currentRoute } = props;
 
   return map(hierarchy, (parentGroup, parentName) => {
     let intoCurrentRoute = false;
@@ -65,6 +64,7 @@ function ComponentsGroup(hierarchy, props, isFiltering) {
         intoCurrentRoute = true;
         return false;
       }
+      return true;
     });
 
     return (
@@ -75,7 +75,8 @@ function ComponentsGroup(hierarchy, props, isFiltering) {
       >
 
         {map(parentGroup, (componentItem, groupName) => {
-          const intoCurrentGroup = findIndex(componentItem, { routeName: currentRoute }) > -1;
+          const intoCurrentGroup = findIndex(componentItem,
+            { routeName: currentRoute }) > -1;
 
           return (
             <Section
@@ -95,7 +96,7 @@ function ComponentsGroup(hierarchy, props, isFiltering) {
                   title={title}
                   onPress={() => {
                     storeLastRoute(routeName);
-                    props.navigation.navigate({ routeName })
+                    props.navigation.navigate({ routeName });
                   }}
                 />
               ))}
@@ -110,7 +111,7 @@ function ComponentsGroup(hierarchy, props, isFiltering) {
 export class CustomDrawer extends Component {
   state = {
     filterValue: null,
-    filteredComps:[],
+    filteredComps: [],
     isFiltering: false,
   };
 
@@ -121,16 +122,15 @@ export class CustomDrawer extends Component {
 
   filterStyleguides = (text) => {
     const { customItems } = this.props;
-    const [Welcome, ...componentItems] = customItems;
+    const [Welcome, ...componentItems] = customItems; // eslint-disable-line
 
     const isFiltering = !!text;
 
     const filterRegex = new RegExp(text, 'i');
-    const filteredComps = isFiltering ?
-      filter(componentItems, (item) =>
-        filterRegex.test(item.title) || filterRegex.test(item.group)
-      ) :
-      [];
+    const filteredComps = isFiltering
+      ? filter(componentItems,
+        (item) => filterRegex.test(item.title) || filterRegex.test(item.group))
+      : [];
 
     this.setState({
       filterValue: text,
@@ -149,12 +149,11 @@ export class CustomDrawer extends Component {
 
     const [Welcome, ...componentItems] = customItems;
 
-    const hierarchy = groupBy(isFiltering ? filteredComps : componentItems, 'parent');
+    const hierarchy = groupBy(isFiltering
+      ? filteredComps : componentItems, 'parent');
     forEach(hierarchy, (group, parent) => {
       hierarchy[parent] = groupBy(group, 'group');
     });
-
-    const isActive = currentRoute === Welcome.key;
 
     return (
       <ScrollView>
@@ -173,7 +172,7 @@ export class CustomDrawer extends Component {
               title={Welcome.title}
               onPress={() => {
                 storeLastRoute(Welcome.routeName);
-                navigation.navigate({ routeName: Welcome.routeName })
+                navigation.navigate({ routeName: Welcome.routeName });
               }}
             />
           )}
