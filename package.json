@@ -16,6 +16,29 @@
     "jest-watch": "jest --colors --watchAll",
     "jest-update": "jest --colors -u"
   },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    },
+    "modulePaths": [
+      "<rootDir>/functional/",
+      "<rootDir>/ui/",
+      "<rootDir>/utils/"
+    ],
+    "testResultsProcessor": "./node_modules/jest-html-reporter",
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ],
+    "coverageDirectory": "./reports",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|react-native-htmlview|react-navigation|react-native-safe-area-view|react-native-drawer|react|react-navigation-fluid-transitions)/)"
+    ]
+  },
   "peerDependencies": {
     "react": "16.6.3",
     "react-native": "0.57.8"
@@ -33,12 +56,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/runtime": "^7.4.3",
     "babel-bridge": "^1.12.11",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^23.4.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-react-native": "^4.0.1",
     "babel-runtime": "7.0.0-beta.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
