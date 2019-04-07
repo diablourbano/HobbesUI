@@ -1,112 +1,14 @@
 import React, { Component } from 'react';
 import {
   ScrollView,
-  AsyncStorage,
 } from 'react-native';
-import capitalize from 'lodash.capitalize';
 import filter from 'lodash.filter';
-import findIndex from 'lodash.findindex';
 import forEach from 'lodash.foreach';
-import map from 'lodash.map';
 import groupBy from 'lodash.groupby';
-
-import { STYLEGUIDE_SYSTEM } from '../utils/constants';
-import { COLORS } from '../utils/variables';
-import Section from './drawerParent';
+import { storeLastRoute, retrieveLastRoute } from '../utils/routeStore';
+import { ItemComponent } from './drawer/itemComponent';
+import { ComponentsGroup } from './drawer/componentsGroups';
 import * as styled from './styles';
-
-const storeLastRoute = async (currentRoute) => {
-  try {
-    await AsyncStorage.setItem('LAST_ROUTE', currentRoute);
-  } catch (error) {
-    // Error saving data
-  }
-};
-
-const retrieveLastRoute = async (currentRoute, navigation) => {
-  try {
-    const value = await AsyncStorage.getItem('LAST_ROUTE');
-    const lastRoute = value || STYLEGUIDE_SYSTEM;
-
-    if (currentRoute !== lastRoute) {
-      navigation.navigate({ routeName: lastRoute });
-    }
-  } catch (error) {
-    console.log({ error }); // eslint-disable-line no-console
-  }
-};
-
-function ItemComponent(props) {
-  const { hasPadding, onPress, isActive, title } = props;
-  return (
-    <styled.Item
-      hasPadding={hasPadding}
-      onPress={onPress}
-    >
-      <styled.ItemList
-        isActive={isActive}
-      >
-        {title} {isActive ? '•' : ''}
-      </styled.ItemList>
-    </styled.Item>
-  );
-}
-
-function ComponentsGroup(hierarchy, props, isFiltering) {
-  const { activeItemKey: currentRoute } = props;
-
-  return map(hierarchy, (parentGroup, parentName) => {
-    let intoCurrentRoute = false;
-    const parentGroupArr = Object.values(parentGroup);
-
-    forEach(parentGroupArr, (group) => {
-      if (findIndex(group, { routeName: currentRoute }) > -1) {
-        intoCurrentRoute = true;
-        return false;
-      }
-      return true;
-    });
-
-    return (
-      <Section
-        key={`parent-item-${parentName}`}
-        shouldCollapse={!isFiltering && !intoCurrentRoute}
-        title={capitalize(parentName)}
-      >
-
-        {map(parentGroup, (componentItem, groupName) => {
-          const intoCurrentGroup = findIndex(componentItem,
-            { routeName: currentRoute }) > -1;
-
-          return (
-            <Section
-              key={`group-item-${groupName}`}
-              title={groupName}
-              sectionColor={COLORS.mediumGray}
-              sectionHeight={30}
-              sectionFontSize={18}
-              levelPosition={2}
-              shouldCollapse={!isFiltering && !intoCurrentGroup}
-            >
-              {map(componentItem, ({ key, title, routeName }) => (
-                <ItemComponent
-                  hasPadding
-                  key={`view-item-${key}`}
-                  isActive={currentRoute === key}
-                  title={title}
-                  onPress={() => {
-                    storeLastRoute(routeName);
-                    props.navigation.navigate({ routeName });
-                  }}
-                />
-              ))}
-            </Section>
-          );
-        })}
-      </Section>
-    );
-  });
-}
 
 export class CustomDrawer extends Component {
   state = {
@@ -176,7 +78,12 @@ export class CustomDrawer extends Component {
               }}
             />
           )}
-          {ComponentsGroup(hierarchy, this.props, isFiltering)}
+          <ComponentsGroup
+            hierarchy={hierarchy}
+            isFiltering={isFiltering}
+            navigation={navigation}
+            currentRoute={currentRoute}
+          />
         </styled.SafeView>
       </ScrollView>
     );

@@ -40,7 +40,7 @@ describe('prepare drawerItems', () => {
   });
 });
 
-describe.only('prepare styleGuides', () => {
+describe('prepare styleGuides', () => {
   it('should prepare components with default', () => {
     const components = [{
       id: 'foobar',

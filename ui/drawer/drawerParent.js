@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { COLORS } from '../utils/variables';
-import * as styled from './styles';
+import { COLORS } from '../../utils/variables';
+import * as styled from '../styles';
 
 class DrawerSection extends Component {
   state = {

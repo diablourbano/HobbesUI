@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
+import isEmpty from 'lodash.isempty';
 import * as styled from '../ui/styles';
 import { COLORS } from '../utils/variables';
 
@@ -36,7 +37,14 @@ function guideSystem(config) {
 }
 
 export const Styleguide = {
-  add: (config) => {
+  add: (config = {}) => {
+    if (isEmpty(config)) return;
+
+    const isValidId = !!config.id;
+    const isValidComponent = !!config.component;
+
+    if (!isValidId || !isValidComponent) return;
+
     const { id, group, title, parent } = config;
     components.push({
       id,
