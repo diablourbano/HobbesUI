@@ -40,7 +40,7 @@
     ],
     "coverageDirectory": "./reports",
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|react-native-htmlview|react-navigation|react-native-safe-area-view|react-native-drawer|react|react-navigation-fluid-transitions)/)"
+      "node_modules/(?!(react-native|react-native-htmlview|react-navigation|react-native-safe-area-view|react|react-navigation-fluid-transitions)/)"
     ]
   },
   "peerDependencies": {
@@ -57,7 +57,6 @@
     "lodash.isempty": "^4.4.0",
     "lodash.map": "^4.6.0",
     "react-navigation": "2.11.2",
-    "react-navigation-drawer": "^1.2.1",
     "styled-components": "^3.2.5"
   },
   "devDependencies": {
