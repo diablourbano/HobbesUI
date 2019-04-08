@@ -6,7 +6,7 @@ export const styleGuides = (componentsToParse = []) => {
   });
 
   return uiComponents;
-}
+};
 
 export const drawerItems = (componentsToParse = []) => {
   return componentsToParse.map(({
@@ -23,4 +23,4 @@ export const drawerItems = (componentsToParse = []) => {
       parent,
     }
   ));
-}
+};

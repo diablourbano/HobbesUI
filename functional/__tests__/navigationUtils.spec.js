@@ -18,7 +18,7 @@ describe('prepare drawerItems', () => {
       group: 'UNGROUPED',
       title: 'foobar',
       parent: 'NOPARENT',
-    }])
+    }]);
   });
 
   it('should return drawer items', () => {
@@ -36,7 +36,7 @@ describe('prepare drawerItems', () => {
       group: 'GROUP',
       title: 'foo',
       parent: 'SOMETHING',
-    }])
+    }]);
   });
 });
 
@@ -55,12 +55,12 @@ describe('prepare styleGuides', () => {
   it('should prepare components', () => {
     const components = [{
       id: 'foobar',
-      component: "hi, this is the component",
+      component: 'hi, this is the component',
     }];
     const componentsToLoad = styleGuides(components);
 
     expect(componentsToLoad).toEqual({
-      foobar: "hi, this is the component",
+      foobar: 'hi, this is the component',
     });
   });
 });

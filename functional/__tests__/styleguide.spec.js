@@ -31,6 +31,10 @@ describe('Styleguide invalid conditions', () => {
 
 describe('Styleguide valid conditions', () => {
   it('should add and return the components', () => {
-    Styleguide.add({ id: 'some_id', parent: 'something', component: 'some component' });
+    Styleguide.add({
+      id: 'some_id',
+      parent: 'something',
+      component: 'some component',
+    });
   });
 });

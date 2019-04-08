@@ -62,4 +62,4 @@ export const ComponentsGroup = (props) => {
       </Section>
     );
   });
-}
+};

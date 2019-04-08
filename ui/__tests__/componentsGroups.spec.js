@@ -4,16 +4,16 @@ import { ComponentsGroup } from '../drawer/componentsGroups';
 
 describe('ComponentsGroup snapshots', () => {
   it('should return null if hierarchy is undefined', () => {
-    const component = shallow(
+    const component = shallow((
       <ComponentsGroup />
-    );
+    ));
     expect(component.isEmptyRender()).toEqual(true);
   });
 
   it('should return [] if hierarchy is empty', () => {
-    const component = shallow(
+    const component = shallow((
       <ComponentsGroup hierarchy={[]} />
-    );
+    ));
     expect(component).toMatchSnapshot();
   });
 

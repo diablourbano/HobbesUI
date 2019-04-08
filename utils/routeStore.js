@@ -1,7 +1,7 @@
 import {
   AsyncStorage,
 } from 'react-native';
-import { STYLEGUIDE_SYSTEM } from '../utils/constants';
+import { STYLEGUIDE_SYSTEM } from './constants';
 
 export const storeLastRoute = async (currentRoute) => {
   try {

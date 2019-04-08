@@ -24,4 +24,4 @@ export const Welcome = (props) => {
       </styled.Content>
     </styled.MainContainer>
   );
-}
+};
