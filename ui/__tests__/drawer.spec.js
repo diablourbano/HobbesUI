@@ -35,9 +35,7 @@ describe('ItemComponent', () => {
       <CustomDrawer
         customItems={[]}
         activeItemKey="SOMETHING"
-        navigation={{
-          navigate: (route) => null
-        }}
+        navigation={{ navigate: () => null }}
       />
     ));
 
@@ -52,9 +50,7 @@ describe('ItemComponent', () => {
       component = shallow((
         <CustomDrawer
           customItems={customItem}
-          navigation={{
-            navigate: (route) => null
-          }}
+          navigation={{ navigate: () => null }}
         />
       ));
 
@@ -76,14 +72,11 @@ describe('ItemComponent', () => {
   });
 
   describe('items to show', () => {
-
     it('should render three items and default route to first item', () => {
       const component = shallow((
         <CustomDrawer
           customItems={customItems}
-          navigation={{
-            navigate: (route) => null
-          }}
+          navigation={{ navigate: () => null }}
         />
       ));
 
@@ -102,9 +95,7 @@ describe('ItemComponent', () => {
         <CustomDrawer
           customItems={customItems}
           activeItemKey="BAR"
-          navigation={{
-            navigate: (route) => null
-          }}
+          navigation={{ navigate: () => null }}
         />
       ));
 
@@ -115,8 +106,9 @@ describe('ItemComponent', () => {
       expect(welcomeComponent.props().isActive).toEqual(false);
 
       const componentGroupsProps = container.childAt(2).props();
-      expect(componentGroupsProps.hierarchy.someparent.somegroup.length).toEqual(2);
       expect(componentGroupsProps.currentRoute).toEqual('BAR');
+      const { hierarchy } = componentGroupsProps;
+      expect(hierarchy.someparent.somegroup.length).toEqual(2);
     });
   });
 });
