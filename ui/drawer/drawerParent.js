@@ -66,6 +66,7 @@ DrawerSection.defaultProps = {
   sectionHeight: 32,
   sectionFontSize: 20,
   levelPosition: 1,
+  title: '',
 };
 
 export default DrawerSection;

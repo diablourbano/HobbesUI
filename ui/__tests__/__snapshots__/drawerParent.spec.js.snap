@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawerSection should render it collapsed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DrawerSection
+    levelPosition={1}
+    sectionColor="#8b939e"
+    sectionFontSize={20}
+    sectionHeight={32}
+    shouldCollapsed={true}
+    title="foo"
+  >
+    This is something
+  </DrawerSection>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styles__ParentSection
+          onPress={[Function]}
+          sectionColor="#8b939e"
+          sectionHeight={32}
+        >
+          <styles__ParentName
+            sectionFontSize={20}
+          >
+            foo
+          </styles__ParentName>
+        </styles__ParentSection>,
+        "This is something",
+      ],
+      "isCollapsed": true,
+      "levelPosition": 1,
+      "sectionColor": "#8b939e",
+      "sectionHeight": 32,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <styles__ParentName
+            sectionFontSize={20}
+          >
+            foo
+          </styles__ParentName>,
+          "onPress": [Function],
+          "sectionColor": "#8b939e",
+          "sectionHeight": 32,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "foo",
+            "sectionFontSize": 20,
+          },
+          "ref": null,
+          "rendered": "foo",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "This is something",
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styles__ParentSection
+            onPress={[Function]}
+            sectionColor="#8b939e"
+            sectionHeight={32}
+          >
+            <styles__ParentName
+              sectionFontSize={20}
+            >
+              foo
+            </styles__ParentName>
+          </styles__ParentSection>,
+          "This is something",
+        ],
+        "isCollapsed": true,
+        "levelPosition": 1,
+        "sectionColor": "#8b939e",
+        "sectionHeight": 32,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styles__ParentName
+              sectionFontSize={20}
+            >
+              foo
+            </styles__ParentName>,
+            "onPress": [Function],
+            "sectionColor": "#8b939e",
+            "sectionHeight": 32,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "foo",
+              "sectionFontSize": 20,
+            },
+            "ref": null,
+            "rendered": "foo",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "This is something",
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
+
+exports[`DrawerSection should render with default values 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DrawerSection
+    levelPosition={1}
+    sectionColor="#8b939e"
+    sectionFontSize={20}
+    sectionHeight={32}
+    title=""
+  >
+    This is something
+  </DrawerSection>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styles__ParentSection
+          onPress={[Function]}
+          sectionColor="#8b939e"
+          sectionHeight={32}
+        >
+          <styles__ParentName
+            sectionFontSize={20}
+          >
+            
+          </styles__ParentName>
+        </styles__ParentSection>,
+        "This is something",
+      ],
+      "isCollapsed": true,
+      "levelPosition": 1,
+      "sectionColor": "#8b939e",
+      "sectionHeight": 32,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <styles__ParentName
+            sectionFontSize={20}
+          >
+            
+          </styles__ParentName>,
+          "onPress": [Function],
+          "sectionColor": "#8b939e",
+          "sectionHeight": 32,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "",
+            "sectionFontSize": 20,
+          },
+          "ref": null,
+          "rendered": "",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "This is something",
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styles__ParentSection
+            onPress={[Function]}
+            sectionColor="#8b939e"
+            sectionHeight={32}
+          >
+            <styles__ParentName
+              sectionFontSize={20}
+            >
+              
+            </styles__ParentName>
+          </styles__ParentSection>,
+          "This is something",
+        ],
+        "isCollapsed": true,
+        "levelPosition": 1,
+        "sectionColor": "#8b939e",
+        "sectionHeight": 32,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styles__ParentName
+              sectionFontSize={20}
+            >
+              
+            </styles__ParentName>,
+            "onPress": [Function],
+            "sectionColor": "#8b939e",
+            "sectionHeight": 32,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "",
+              "sectionFontSize": 20,
+            },
+            "ref": null,
+            "rendered": "",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "This is something",
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
