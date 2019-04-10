@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   ScrollView,
 } from 'react-native';
+import isEmpty from 'lodash.isempty';
 import filter from 'lodash.filter';
 import forEach from 'lodash.foreach';
 import groupBy from 'lodash.groupby';
@@ -49,7 +50,12 @@ export class CustomDrawer extends Component {
       navigation,
     } = this.props;
 
+    if (isEmpty(customItems)) return null;
+
     const [Welcome, ...componentItems] = customItems;
+
+    const isFirstItemActive = currentRoute === Welcome.key
+      || !currentRoute || customItems.length === 1;
 
     const hierarchy = groupBy(isFiltering
       ? filteredComps : componentItems, 'parent');
@@ -70,7 +76,7 @@ export class CustomDrawer extends Component {
 
           {!isFiltering && (
             <ItemComponent
-              isActive={currentRoute === Welcome.key}
+              isActive={isFirstItemActive}
               title={Welcome.title}
               onPress={() => {
                 storeLastRoute(Welcome.routeName);
@@ -89,3 +95,8 @@ export class CustomDrawer extends Component {
     );
   }
 }
+
+CustomDrawer.defaultProps = {
+  customItems: [],
+  activeItemKey: null,
+};
