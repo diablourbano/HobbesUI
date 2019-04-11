@@ -23,7 +23,7 @@ export class CustomDrawer extends Component {
     retrieveLastRoute(currentRoute, navigation);
   }
 
-  filterStyleguides = (text) => {
+  filterComps = (text) => {
     const { customItems } = this.props;
     const [Welcome, ...componentItems] = customItems; // eslint-disable-line
 
@@ -71,7 +71,7 @@ export class CustomDrawer extends Component {
           <styled.FilterComps
             placeholder="filter..."
             value={filterValue}
-            onChangeText={this.filterStyleguides}
+            onChangeText={this.filterComps}
           />
 
           {!isFiltering && (

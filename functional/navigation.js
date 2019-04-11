@@ -1,15 +1,15 @@
 import { createDrawerNavigator } from 'react-navigation';
-import { STYLEGUIDE_SYSTEM } from '../utils/constants';
+import { HobbesUI } from '../utils/constants';
 import { COLORS } from '../utils/variables';
-import { Welcome, CustomDrawer, Styleguide } from '../index';
+import { Welcome, CustomDrawer, Hobbes } from '../index';
 import { styleGuides, drawerItems } from './navigationUtils';
 
 import '../../../styleguidesToLoad';
 
-const components = Styleguide.uiComponents();
+const components = Hobbes.uiComponents();
 
-export const StyleguideFlow = createDrawerNavigator({
-  [STYLEGUIDE_SYSTEM]: Welcome,
+export const HobbesFlow = createDrawerNavigator({
+  [HOBBESUI]: Welcome,
   ...styleGuides(components),
 }, {
   drawerBackgroundColor: COLORS.lightGray,
@@ -17,9 +17,9 @@ export const StyleguideFlow = createDrawerNavigator({
   contentOptions: {
     customItems: [
       {
-        key: STYLEGUIDE_SYSTEM,
-        routeName: STYLEGUIDE_SYSTEM,
-        title: 'Welcome to Styleguide',
+        key: HOBBESUI,
+        routeName: HOBBESUI,
+        title: 'Welcome to HobbesUI',
       },
       ...drawerItems(components),
     ],

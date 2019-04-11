@@ -10,7 +10,7 @@ export const Welcome = (props) => {
       <styled.Content>
         <styled.MainSection>
           <styled.Title>hello</styled.Title>
-          <styled.Subtitle>Styleguide System</styled.Subtitle>
+          <styled.Subtitle>HobbesUI</styled.Subtitle>
         </styled.MainSection>
         <styled.Footer>
           <styled.Note

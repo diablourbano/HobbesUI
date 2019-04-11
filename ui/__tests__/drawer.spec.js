@@ -4,9 +4,9 @@ import { CustomDrawer } from '../drawer';
 
 const customItem = [
   {
-    key: 'STYLEGUIDE_SYSTEM',
-    routeName: 'STYLEGUIDE_SYSTEM',
-    title: 'Welcome to Styleguide',
+    key: 'HOBBESUI',
+    routeName: 'HOBBESUI',
+    title: 'Welcome to HobbesUI',
   },
 ];
 

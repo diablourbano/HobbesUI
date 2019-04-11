@@ -10,7 +10,7 @@ const components = [];
 function guideSystem(config) {
   const { title, component } = config;
 
-  return class StyleguideSystem extends Component {
+  return class HobbesUISystem extends Component {
     static navigationOptions = {
       drawerLabel: title,
     };
@@ -36,7 +36,7 @@ function guideSystem(config) {
   };
 }
 
-export const Styleguide = {
+export const Hobbes = {
   add: (config = {}) => {
     if (isEmpty(config)) return;
 

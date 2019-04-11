@@ -24,7 +24,7 @@ ShallowWrapper {
             hello
           </styles__Title>
           <styles__Subtitle>
-            Styleguide System
+            HobbesUI
           </styles__Subtitle>
         </styles__MainSection>
         <styles__Footer>
@@ -48,7 +48,7 @@ ShallowWrapper {
               hello
             </styles__Title>
             <styles__Subtitle>
-              Styleguide System
+              HobbesUI
             </styles__Subtitle>
           </styles__MainSection>,
           <styles__Footer>
@@ -72,7 +72,7 @@ ShallowWrapper {
                 hello
               </styles__Title>,
               <styles__Subtitle>
-                Styleguide System
+                HobbesUI
               </styles__Subtitle>,
             ],
           },
@@ -94,10 +94,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Styleguide System",
+                "children": "HobbesUI",
               },
               "ref": null,
-              "rendered": "Styleguide System",
+              "rendered": "HobbesUI",
               "type": [Function],
             },
           ],
@@ -146,7 +146,7 @@ ShallowWrapper {
               hello
             </styles__Title>
             <styles__Subtitle>
-              Styleguide System
+              HobbesUI
             </styles__Subtitle>
           </styles__MainSection>
           <styles__Footer>
@@ -170,7 +170,7 @@ ShallowWrapper {
                 hello
               </styles__Title>
               <styles__Subtitle>
-                Styleguide System
+                HobbesUI
               </styles__Subtitle>
             </styles__MainSection>,
             <styles__Footer>
@@ -194,7 +194,7 @@ ShallowWrapper {
                   hello
                 </styles__Title>,
                 <styles__Subtitle>
-                  Styleguide System
+                  HobbesUI
                 </styles__Subtitle>,
               ],
             },
@@ -216,10 +216,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": "Styleguide System",
+                  "children": "HobbesUI",
                 },
                 "ref": null,
-                "rendered": "Styleguide System",
+                "rendered": "HobbesUI",
                 "type": [Function],
               },
             ],
