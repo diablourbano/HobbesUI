@@ -31,7 +31,7 @@ import 'components/MyOtherComponent/myOtherComponent.hobbes.js';
 import 'screens/Login/Login.hobbes.js';
 ```
 
-_`*.hobbes.js` extension is just a suggestion to differentiate your source code files from your `hobbes` files, you any use any convention but be consistent_
+_`*.hobbes.js` extension is just a suggestion to differentiate your source code files from your `hobbes` files, you could use any convention but be consistent_
 
 You need to set your app to recognize *Hobbes* as part of your app:
 
