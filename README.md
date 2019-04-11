@@ -1,4 +1,4 @@
-# HOBBES
+# HobbesUI
 ### _a rapid development environment for UI components_
 
 Think of Storybook but simplified and thought for ReactNative from scratch.
@@ -13,7 +13,7 @@ already there just to avoid the scenario described above. *That’s an ugly hack
 
 ## Install
 ```
-yarn install hobbes --dev
+yarn install hobbesui --dev
 ```
 
 _note: minimum required react-native 0.57_
@@ -21,7 +21,7 @@ _note: minimum required react-native 0.57_
 ## Configuration
 Because mobile environment is different from web, we can’t think of a solution like this in terms like storybook or styleguidist - or any similar tool - do. 
 
-So there’s a little manual configuration you need to set up, which also gives the freedom to decide under which circumstances you want to include *Hobbes* i.e. only development, also for staging, a different build for the designer, etc.
+So there’s a little manual configuration you need to set up, which also gives the freedom to decide under which circumstances you want to include *HobbesUI* i.e. only development, also for staging, a different build for the designer, etc.
 
 Add `styleguidesToLoad.js` file to the root of your project, into this file you need to import every file you create to render the components previews, i.e.
 
@@ -31,29 +31,29 @@ import 'components/MyOtherComponent/myOtherComponent.hobbes.js';
 import 'screens/Login/Login.hobbes.js';
 ```
 
-_`*.hobbes.js` extension is just a suggestion to differentiate your source code files from your `hobbes` files, you could use any convention but be consistent_
+_`*.hobbes.js` extension is just a suggestion to differentiate your source code files from your `HobbesUI` files, you could use any convention but be consistent_
 
-You need to set your app to recognize *Hobbes* as part of your app:
+You need to set your app to recognize *HobbesUI* as part of your app:
 
-If you want to include *Hobbes* as part of your routes, then
+If you want to include *HobbesUI* as part of your routes, then
 
 ```
-import { HobbesFlow } from 'hobbes';
+import { HobbesFlow } from 'hobbesui';
 ```
 
 and set it on any part of your app route you consider relevant and configure your app to be able to access it.
 
-If you want to render `hobbes` standalone, then replace the root of your app with `HobbesFlow`.
+If you want to render `HobbesUI` standalone, then replace the root of your app with `HobbesFlow`.
 
 ## Use it
-*Hobbes* follows the` Lego concept` idea - there’re several ways to call it, I like to call it like that, you can read my position on that
+*HobbesUI* follows the` Lego concept` idea - there’re several ways to call it, I like to call it like that, you can read my position on that
 topic [here](https://www.diablourbano.com/the-lego-concept/), you can find a lot of literature on the componentization subject - and renders 
 a View with your screen or component plus a nagivation drawer which allows you to categorize your components, i.e. components 
 (buttons, labels, colors, etc) scenes (think of the presentational side of an screen).
 
 ```
 import React from 'react';
-import { Hobbes } from 'hobbes';
+import { Hobbes } from 'hobbesui';
 import MyComponent from './myComponent';
 
 Hobbes.add({
@@ -80,7 +80,7 @@ Hobbes.add({
 
 component: [_required_ _react component_] your component to be rendered.
 
-Because Hobbes uses react-navigation for its components rendering, you can also implement workflows between your scenes if you pass 
+Because *HobbesUI* uses react-navigation for its components rendering, you can also implement workflows between your scenes if you pass 
 them `navigation` props, this can accelerate and improve the app workflow/navigation between screens
 
 ### Use case beyond the basics
@@ -88,12 +88,12 @@ This is something to make happy not only to your inner developer but also to the
 
 *Example:*
 
-Add to `Hobes` a group of screens with common `Parent` i.e *WORKFLOWS* and common `Group` i.e. *LOGIN*, then if you implement your scenes to receive the navigation action as prop from your `Hobbes` definition component you can use the `id` of each screen to navigate back and fort to and from it.
+Add to `Hobes` a group of screens with common `Parent` i.e *WORKFLOWS* and common `Group` i.e. *LOGIN*, then if you implement your scenes to receive the navigation action as prop from your *HobbesUI* definition component you can use the `id` of each screen to navigate back and fort to and from it.
 
 ```
 import React from 'react';
 import _yourNavigationFunct_ from 'navigationLibraryYoureUsing';
-import { Hobbes } from 'hobbes';
+import { Hobbes } from 'hobbesui';
 import Login from './Login';
 import Home from './Home';
 
