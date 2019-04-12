@@ -11,6 +11,13 @@ the app everytime you’re checking your changes, then you’re losing time and 
 Something similar can be said if you instead modify your app route to render the first screen, then you need to modify something that’s 
 already there just to avoid the scenario described above. *That’s an ugly hack.*
 
+## Requirements
+```
+- react 16.6.3
+- react-native 0.57.8
+ - react-navigation v2
+```
+
 ## Install
 ```
 yarn install hobbesui --dev
@@ -38,7 +45,7 @@ You need to set your app to recognize *HobbesUI* as part of your app:
 If you want to include *HobbesUI* as part of your routes, then
 
 ```
-import { HobbesFlow } from 'hobbesui';
+import { HobbesFlow } from 'HobbesUI';
 ```
 
 and set it on any part of your app route you consider relevant and configure your app to be able to access it.
@@ -53,7 +60,7 @@ a View with your screen or component plus a nagivation drawer which allows you t
 
 ```
 import React from 'react';
-import { Hobbes } from 'hobbesui';
+import { Hobbes } from 'HobbesUI';
 import MyComponent from './myComponent';
 
 Hobbes.add({
@@ -93,7 +100,7 @@ Add to `Hobes` a group of screens with common `Parent` i.e *WORKFLOWS* and commo
 ```
 import React from 'react';
 import _yourNavigationFunct_ from 'navigationLibraryYoureUsing';
-import { Hobbes } from 'hobbesui';
+import { Hobbes } from 'HobbesUI';
 import Login from './Login';
 import Home from './Home';
 
