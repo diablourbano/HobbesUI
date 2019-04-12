@@ -1,5 +1,5 @@
 import { createDrawerNavigator } from 'react-navigation';
-import { HobbesUI } from '../utils/constants';
+import { HOBBESUI } from '../utils/constants';
 import { COLORS } from '../utils/variables';
 import { Welcome, CustomDrawer, Hobbes } from '../index';
 import { styleGuides, drawerItems } from './navigationUtils';
