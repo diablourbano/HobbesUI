@@ -2728,11 +2728,6 @@ circular-json@^0.3.1:
   resolved "https://registry.npmjs.org/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
   integrity sha512-UZK3NBx2Mca+b5LsG7bY183pHWt5Y1xts4P3Pz7ENTwGVnJOUWbRb3ocjvX7hx9tq/yTAdclXm9sZ38gNuem4A==
 
-clamp@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/clamp/-/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
-  integrity sha1-ZqDmQBGBbjcZaCj9yMjBRzEshjQ=
-
 clap@^1.0.9:
   version "1.2.3"
   resolved "https://registry.npmjs.org/clap/-/clap-1.2.3.tgz#4f36745b32008492557f46412d66d50cb99bce51"
@@ -3068,14 +3063,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     ripemd160 "^2.0.0"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
-
-create-react-context@^0.2.1:
-  version "0.2.3"
-  resolved "https://registry.npmjs.org/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
-  integrity sha512-CQBmD0+QGgTaxDL3OX1IDXYqjkp2It4RIbcb99jS6AEg27Ga+a9G3JtK6SIu0HBwPLZlmwt9F7UwWA4Bn92Rag==
-  dependencies:
-    fbjs "^0.8.0"
-    gud "^1.0.0"
 
 cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   version "5.1.0"
@@ -4343,7 +4330,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.0, fbjs@^0.8.16:
+fbjs@^0.8.16:
   version "0.8.17"
   resolved "https://registry.npmjs.org/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -4825,11 +4812,6 @@ growly@^1.3.0:
   resolved "https://registry.npmjs.org/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-gud@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
-  integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
-
 handle-thing@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
@@ -4954,7 +4936,7 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
   integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
@@ -5568,11 +5550,6 @@ is-wsl@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
-
-isarray@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
-  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
@@ -7605,13 +7582,6 @@ path-to-regexp@0.1.7:
   resolved "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
 
-path-to-regexp@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-1.7.0.tgz#59fde0f435badacba103a84e9d3bc64e96b9937d"
-  integrity sha1-Wf3g9DW62suhA6hOnTvGTpa5k30=
-  dependencies:
-    isarray "0.0.1"
-
 path-type@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/path-type/-/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
@@ -8085,7 +8055,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8186,15 +8156,6 @@ query-string@^4.1.0:
   dependencies:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
-
-query-string@^6.1.0:
-  version "6.4.2"
-  resolved "https://registry.npmjs.org/query-string/-/query-string-6.4.2.tgz#8be1dbd105306aebf86022144f575a29d516b713"
-  integrity sha512-DfJqAen17LfLA3rQ+H5S4uXphrF+ANU1lT2ijds4V/Tj4gZxA3gx5/tg1bz7kYCmwna7LyJNCYqO7jNRzo3aLw==
-  dependencies:
-    decode-uri-component "^0.2.0"
-    split-on-first "^1.0.0"
-    strict-uri-encode "^2.0.0"
 
 querystring-es3@^0.2.0:
   version "0.2.1"
@@ -8304,99 +8265,6 @@ react-is@^16.3.1, react-is@^16.6.3, react-is@^16.8.1, react-is@^16.8.4, react-is
   version "16.8.6"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
-
-react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-  integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
-react-native-dismiss-keyboard@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
-  integrity sha1-MohiQrPyMX4SHzrrmwpYXiuHm0k=
-
-react-native-drawer-layout-polyfill@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/react-native-drawer-layout-polyfill/-/react-native-drawer-layout-polyfill-1.3.2.tgz#192c84d7a5a6b8a6d2be2c7daa5e4164518d0cc7"
-  integrity sha512-XzPhfLDJrYHru+e8+dFwhf0FtTeAp7JXPpFYezYV6P1nTeA1Tia/kDpFT+O2DWTrBKBEI8FGhZnThrroZmHIxg==
-  dependencies:
-    react-native-drawer-layout "1.3.2"
-
-react-native-drawer-layout@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/react-native-drawer-layout/-/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
-  integrity sha512-fjO0scqbJUfNu2wuEpvywL7DYLXuCXJ2W/zYhWz986rdLytidbys1QGVvkaszHrb4Y7OqO96mTkgpOcP8KWevw==
-  dependencies:
-    react-native-dismiss-keyboard "1.0.0"
-
-react-native-safe-area-view@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/react-native-safe-area-view/-/react-native-safe-area-view-0.7.0.tgz#38f5ab9368d6ef9e5d18ab64212938af3ec39421"
-  integrity sha512-SjLdW/Th0WVMhyngH4O6yC21S+O4U4AAG3QxBr7fZ2ftgjXSpKbDHAhEpxBdFwei6HsnsC2h9oYMtPpaW9nfGg==
-  dependencies:
-    hoist-non-react-statics "^2.3.1"
-
-react-native-safe-area-view@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.npmjs.org/react-native-safe-area-view/-/react-native-safe-area-view-0.8.0.tgz#22d78cb8e8658d04a10cd53c1546e0bc86cb7aea"
-  integrity sha512-uAUzpBxXPVmfupz71GYcPjUBnZFtDuThKO/Q4FWEUykSuML78lItYR6JRsE006CY6gw6mUwpk4MJjhDE4uZ+Ww==
-  dependencies:
-    hoist-non-react-statics "^2.3.1"
-
-react-native-tab-view@^0.0.77:
-  version "0.0.77"
-  resolved "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-0.0.77.tgz#11ceb8e7c23100d07e628dc151b57797524d00d4"
-  integrity sha512-9vjD4Ly1Zlum1Y4g23ODpi/F3gYIUIsKWrsZO/Oh5cuX1eiB1DRVn11nY1z+j/hsQfhfyW6nDlmySyDvYQvYCA==
-  dependencies:
-    prop-types "^15.6.0"
-
-react-native-tab-view@^1.0.0:
-  version "1.3.4"
-  resolved "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-1.3.4.tgz#63fc3eb09652651d0ea0e016cff0f3a5e535f4de"
-  integrity sha512-iufNROTPr4+Z/IKijlp5faEANiDBWxhpgx9NSCg3esZ+HN5+UtFwB0xkn4XpNRqCvbzeBkgKMRJL3V6kr5NhWg==
-  dependencies:
-    prop-types "^15.6.1"
-
-react-navigation-deprecated-tab-navigator@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/react-navigation-deprecated-tab-navigator/-/react-navigation-deprecated-tab-navigator-1.3.0.tgz#015dcae1e977b984ca7e99245261c15439026bb7"
-  integrity sha512-Cm+qYOPFWbvvcuv0YYX0ioYwLGgw7XAqdhAfpo3sIr3trxRW8871ePmfFOPezjQtz4v6ItjZt6LPgtBAVZoroQ==
-  dependencies:
-    react-native-tab-view "^0.0.77"
-
-react-navigation-drawer@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.npmjs.org/react-navigation-drawer/-/react-navigation-drawer-0.5.0.tgz#d91b6a6ec65c34ba78c00f814b1e6508922cc9ec"
-  integrity sha512-F1y593uC6pqBMGH+Omz75oNODEbxB/s0EGO8QtYwu1NmOOEUuuLA+c14zm+pgMsI4HlDabiHxPkWqsgGz25xVQ==
-  dependencies:
-    react-native-drawer-layout-polyfill "^1.3.2"
-
-react-navigation-tabs@0.6.0:
-  version "0.6.0"
-  resolved "https://registry.npmjs.org/react-navigation-tabs/-/react-navigation-tabs-0.6.0.tgz#2f526194f4360e56c2702e736887449acc2080dc"
-  integrity sha512-Ax1rujJ51R1Jrz7b5bHUAIgsYC1VrFws+d3hxlPy5dXG84iJdV5dnDFRvdQMDDfDZc+NDx2a223lAYsc3p2+XA==
-  dependencies:
-    hoist-non-react-statics "^2.5.0"
-    prop-types "^15.6.1"
-    react-lifecycles-compat "^3.0.4"
-    react-native-safe-area-view "^0.7.0"
-    react-native-tab-view "^1.0.0"
-
-react-navigation@2.11.2:
-  version "2.11.2"
-  resolved "https://registry.npmjs.org/react-navigation/-/react-navigation-2.11.2.tgz#cd099f6d7d09efe48ef8463614a3abb113d45c01"
-  integrity sha512-K+nCEfyhxYhn4oyYf3CwygOhYob5ZIeoIXnBb9RVOzNxoAf62tTNd9EhfaLitAehlkH1tGDCt9FARBiqYUWR5g==
-  dependencies:
-    clamp "^1.0.1"
-    create-react-context "^0.2.1"
-    hoist-non-react-statics "^2.2.0"
-    path-to-regexp "^1.7.0"
-    query-string "^6.1.0"
-    react-lifecycles-compat "^3"
-    react-native-safe-area-view "^0.8.0"
-    react-navigation-deprecated-tab-navigator "1.3.0"
-    react-navigation-drawer "0.5.0"
-    react-navigation-tabs "0.6.0"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -9265,11 +9133,6 @@ spdy@^4.0.0:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
-split-on-first@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/split-on-first/-/split-on-first-1.0.0.tgz#648af4ce9a28fbcaadd43274455f298b55025fc6"
-  integrity sha512-mjA57TQtdWztVZ9THAjGNpgbuIrNfsNrGa5IyK94NoPaT4N14M+GI4jD7t4arLjFkYRQWdETC5RxFzLWouoB3A==
-
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.npmjs.org/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -9368,11 +9231,6 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
-
-strict-uri-encode@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
-  integrity sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
 
 string-length@^2.0.0:
   version "2.0.0"

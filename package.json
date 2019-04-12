@@ -46,7 +46,8 @@
   },
   "peerDependencies": {
     "react": "16.6.3",
-    "react-native": "0.57.8"
+    "react-native": "0.57.8",
+    "react-navigation": "2.11.2"
   },
   "dependencies": {
     "lodash.capitalize": "^4.2.1",
@@ -57,7 +58,6 @@
     "lodash.groupby": "^4.6.0",
     "lodash.isempty": "^4.4.0",
     "lodash.map": "^4.6.0",
-    "react-navigation": "2.11.2",
     "styled-components": "^3.2.5"
   },
   "devDependencies": {
