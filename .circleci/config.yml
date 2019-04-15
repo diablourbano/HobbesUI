@@ -3,7 +3,7 @@ aliases:
   - &node_install_dependencies
      run:
       name: Install node peerDependencies
-      command: yarn install react@16.8.3 react-native@0.59.1 react-navigation@3.7.1
+      command: yarn add react@16.8.3 react-native@0.59.1 react-navigation@3.7.1
   - &node_install
      run:
       name: Install node dependencies
