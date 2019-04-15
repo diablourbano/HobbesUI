@@ -13,9 +13,9 @@ already there just to avoid the scenario described above. *That’s an ugly hack
 
 ## Requirements
 ```
-- react 16.6.3
-- react-native 0.57.8
- - react-navigation v2
+- react 16.8.3
+- react-native 0.59.4
+ - react-navigation v3
 ```
 
 ## Install
@@ -23,7 +23,7 @@ already there just to avoid the scenario described above. *That’s an ugly hack
 yarn install hobbesui --dev
 ```
 
-_note: minimum required react-native 0.57_
+_note: if you want to use it with react-navigation v2 please use [v0.0.1](https://github.com/diablourbano/HobbesUI/tree/v0.0.1)_
 
 ## Configuration
 Because mobile environment is different from web, we can’t think of a solution like this in terms like storybook or styleguidist - or any similar tool - do. 
