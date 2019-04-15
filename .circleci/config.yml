@@ -19,14 +19,14 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
+      - *node_install_dependencies
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - *node_install_dependencies
       - *node_install
 
       - save_cache:
