@@ -3,7 +3,7 @@ aliases:
   - &node_install_dependencies
      run:
       name: Install node peerDependencies
-      command: yarn add react react-native react-navigation
+      command: yarn add react react-native react-navigation react-navigation-drawer
   - &node_install
      run:
       name: Install node dependencies
