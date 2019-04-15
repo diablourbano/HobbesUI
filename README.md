@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/diablourbano/HobbesUI/tree/master.svg?style=svg)](https://circleci.com/gh/diablourbano/HobbesUI/tree/master)
+
 # HobbesUI
 ### _a rapid development environment for UI components_
 
