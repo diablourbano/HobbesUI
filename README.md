@@ -18,6 +18,7 @@ already there just to avoid the scenario described above. *That’s an ugly hack
 - react 16.8.3
 - react-native 0.59.4
  - react-navigation v3
+ - react-navigation-drawer
 ```
 
 ## Install
