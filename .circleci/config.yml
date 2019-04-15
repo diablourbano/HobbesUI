@@ -3,7 +3,7 @@ aliases:
   - &node_install_dependencies
      run:
       name: Install node peerDependencies
-      command: yarn add react@16.8.3 react-native@0.59.1 react-navigation@3.7.1
+      command: yarn add react react-native react-navigation
   - &node_install
      run:
       name: Install node dependencies
@@ -19,20 +19,13 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
       - *node_install
       - *node_install_dependencies
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run lint
+          command: yarn run lint
 
       - run:
-          name: Run validation
-          command: yarn validate
+          name: Run test
+          command: yarn run jest

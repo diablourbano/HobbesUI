@@ -15,8 +15,7 @@
     "lint": "eslint .",
     "jest": "jest --colors",
     "jest-watch": "jest --colors --watchAll",
-    "jest-update": "jest --colors -u",
-    "validate": "yarn test & yarn lint"
+    "jest-update": "jest --colors -u"
   },
   "jest": {
     "preset": "react-native",
@@ -59,7 +58,6 @@
     "lodash.groupby": "^4.6.0",
     "lodash.isempty": "^4.4.0",
     "lodash.map": "^4.6.0",
-    "react-navigation-drawer": "^1.2.1",
     "styled-components": "^3.2.5"
   },
   "devDependencies": {
@@ -89,7 +87,6 @@
     "jest-html-reporter": "2.0.0",
     "jest-react-native": "^18.0.0",
     "jest-styled-components": "^5.0.1",
-    "metro": "^0.53.1",
     "metro-react-native-babel-preset": "^0.51.1",
     "prop-types": "^15.6.1",
     "react-dom": "^16.3.0-alpha.1",
