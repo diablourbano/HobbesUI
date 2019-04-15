@@ -1,6 +1,6 @@
 {
   "name": "hobbesui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./index.js",
   "license": "Apache-2.0",
   "keywords": [
@@ -44,7 +44,8 @@
   "peerDependencies": {
     "react": "^16.8.3",
     "react-native": "^0.59.1",
-    "react-navigation": "^3.7.1"
+    "react-navigation": "^3.7.1",
+    "react-navigation-drawer": "^1.2.1"
   },
   "dependencies": {
     "lodash.capitalize": "^4.2.1",
