@@ -4,10 +4,6 @@ aliases:
      run:
       name: Install node peerDependencies
       command: yarn add react@16.8.3 react-native@0.59.1 react-navigation@3.7.1
-  - &react_native_upgrade
-     run:
-      name: Upgrade RN
-      command: react-native upgrade
   - &node_install
      run:
       name: Install node dependencies
@@ -23,9 +19,6 @@ jobs:
     steps:
       - checkout
 
-      - *node_install_dependencies
-      - *react_native_upgrade
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -33,6 +26,7 @@ jobs:
             - v1-dependencies-
 
       - *node_install
+      - *node_install_dependencies
 
       - save_cache:
           paths:
