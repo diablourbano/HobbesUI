@@ -12,12 +12,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+      - image: circleci/node:dubnium
 
     working_directory: ~/repo
 
@@ -27,7 +22,7 @@ jobs:
       - run:
         name: "Update Node.js and npm"
         command: |
-          curl -sSL "https://nodejs.org/dist/v10.12.0/node-v10.12.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
+          curl -sSL "https://nodejs.org/dist/v10.12.0/node-v10.12.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v10.12.0-linux-x64/bin/node
           curl https://www.npmjs.com/install.sh | sudo bash
 
       # Download and cache dependencies
