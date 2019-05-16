@@ -18,7 +18,7 @@ function guideSystem(config) {
     render() {
       const { navigation } = this.props;
       return (
-        <View>
+        <View style={{ flex: 1 }}>
           {component}
 
           <styled.ButtonView>
