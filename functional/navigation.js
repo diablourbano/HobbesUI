@@ -1,4 +1,4 @@
-import { createDrawerNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { HOBBESUI } from '../utils/constants';
 import { COLORS } from '../utils/variables';
 import { Welcome, CustomDrawer, Hobbes } from '../index';

@@ -43,9 +43,10 @@
   },
   "peerDependencies": {
     "react": "^16.8.3",
-    "react-native": "^0.59.1",
-    "react-navigation": "^3.7.1",
-    "react-navigation-drawer": "^1.2.1"
+    "react-native": "^0.60.0",
+    "react-navigation": "^4.0.10",
+    "react-navigation-drawer": "^2.2.2",
+    "@react-native-community/async-storage": "^1.6.2"
   },
   "dependencies": {
     "lodash.capitalize": "^4.2.1",
