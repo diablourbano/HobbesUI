@@ -16,9 +16,15 @@ already there just to avoid the scenario described above. *That’s an ugly hack
 ## Requirements
 ```
 - react 16.8.3
-- react-native 0.59.4
- - react-navigation v3
- - react-navigation-drawer
+- react-native ^0.60.0
+- @react-navigation/drawer ^5.12.4
+- @react-navigation/native ^5.9.3
+- react-native-gesture-handler ^1.4.1
+- react-native-reanimated ^1.3.0
+- react-native-screens ^2.0.0-alpha.4
+- react-native-safe-area-context ^0.7.3
+- @react-native-community/masked-view ^0.1.10
+- @react-native-community/async-storage ^1.6.2
 ```
 
 ## Install
@@ -45,15 +51,11 @@ _`*.hobbes.js` extension is just a suggestion to differentiate your source code 
 
 You need to set your app to recognize *hobbesui* as part of your app:
 
-If you want to include *hobbesui* as part of your routes, then
-
 ```
-import { HobbesFlow } from 'hobbesui';
+import { HobbesNavigator } from 'hobbesui';
 ```
 
 and set it on any part of your app route you consider relevant and configure your app to be able to access it.
-
-If you want to render `hobbesui` standalone, then replace the root of your app with `HobbesFlow`.
 
 ## Use it
 *hobbesui* follows the` Lego concept` idea - there’re several ways to call it, I like to call it like that, you can read my position on that

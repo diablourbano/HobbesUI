@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import {
-  ScrollView,
-} from 'react-native';
-import isEmpty from 'lodash.isempty';
-import filter from 'lodash.filter';
-import forEach from 'lodash.foreach';
-import groupBy from 'lodash.groupby';
+  isEmpty,
+  filter,
+  forEach,
+  groupBy,
+} from 'lodash';
 import { storeLastRoute, retrieveLastRoute } from '../utils/routeStore';
 import { ItemComponent } from './drawer/itemComponent';
 import { ComponentsGroup } from './drawer/componentsGroups';
@@ -48,6 +47,7 @@ export class CustomDrawer extends Component {
       customItems,
       activeItemKey: currentRoute,
       navigation,
+      onLeaveHobbes,
     } = this.props;
 
     if (isEmpty(customItems)) return null;
@@ -64,10 +64,8 @@ export class CustomDrawer extends Component {
     });
 
     return (
-      <ScrollView>
-        <styled.SafeView
-          forceInset={{ top: 'always', horizontal: 'never' }}
-        >
+      <styled.SidebarUI>
+        <styled.DrawerScrollView {...this.props}>
           <styled.FilterComps
             placeholder="filter..."
             value={filterValue}
@@ -80,7 +78,7 @@ export class CustomDrawer extends Component {
               title={Welcome.title}
               onPress={() => {
                 storeLastRoute(Welcome.routeName);
-                navigation.navigate({ routeName: Welcome.routeName });
+                navigation.navigate(Welcome.routeName);
               }}
             />
           )}
@@ -90,8 +88,15 @@ export class CustomDrawer extends Component {
             navigation={navigation}
             currentRoute={currentRoute}
           />
-        </styled.SafeView>
-      </ScrollView>
+
+        </styled.DrawerScrollView>
+
+        <styled.LeaveBtn onPress={onLeaveHobbes}>
+          <styled.LeaveLabel>
+            Leave HobbesUI
+          </styled.LeaveLabel>
+        </styled.LeaveBtn>
+      </styled.SidebarUI>
     );
   }
 }

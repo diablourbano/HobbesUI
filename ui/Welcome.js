@@ -1,5 +1,4 @@
 import React from 'react';
-import { DrawerActions } from 'react-navigation-drawer';
 import * as styled from './styles';
 
 export const Welcome = (props) => {
@@ -15,7 +14,7 @@ export const Welcome = (props) => {
         <styled.Footer>
           <styled.Note
             onPress={() => {
-              navigation.dispatch(DrawerActions.toggleDrawer());
+              navigation.toggleDrawer();
             }}
           >
             open the drawer or slide :)

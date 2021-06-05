@@ -1,8 +1,5 @@
 import React from 'react';
-import capitalize from 'lodash.capitalize';
-import findIndex from 'lodash.findindex';
-import forEach from 'lodash.foreach';
-import map from 'lodash.map';
+import { capitalize, findIndex, forEach, map } from 'lodash';
 import { storeLastRoute } from '../../utils/routeStore';
 import { COLORS } from '../../utils/variables';
 import { ItemComponent } from './itemComponent';
@@ -52,7 +49,7 @@ export const ComponentsGroup = (props) => {
                   title={title}
                   onPress={() => {
                     storeLastRoute(routeName);
-                    navigation.navigate({ routeName });
+                    navigation.navigate(routeName);
                   }}
                 />
               ))}

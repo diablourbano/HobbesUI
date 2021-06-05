@@ -1,7 +1,10 @@
-import { Platform } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView } from 'react-native';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { COLORS } from '../utils/variables';
+
+const { height } = Dimensions.get('window');
 
 export const MainContainer = styled(SafeAreaView)`
   background-color: ${COLORS.snowWhite};
@@ -18,6 +21,34 @@ export const MainSection = styled.View`
   height: 100%;
   margin: 0;
   width: 100%;
+`;
+
+export const SidebarUI = styled.View`
+  background-color: ${COLORS.lightGray};
+  height: ${height}px;
+  padding: 8px;
+  padding-bottom: 48px;
+`;
+
+export const DrawerScrollView = styled(DrawerContentScrollView)``;
+
+export const LeaveBtn = styled.TouchableOpacity`
+  border-color: ${COLORS.mediumRed};
+  border-radius: 4px;
+  border-width: 1;
+  border-style: solid;
+  width: 120;
+  align-self: flex-end;
+  padding-top: 8;
+  padding-bottom: 8;
+  margin-top: 12;
+  margin-right: 12;
+`;
+
+export const LeaveLabel = styled.Text`
+  font-size: 14px;
+  color: ${COLORS.darkGray};
+  text-align: center;
 `;
 
 export const Footer = styled.KeyboardAvoidingView`
@@ -47,11 +78,6 @@ export const Subtitle = styled.Text`
 export const Note = styled.Text`
   color: ${COLORS.darkGray};
   font-size: 22px;
-`;
-
-export const SafeView = styled(SafeAreaView)`
-  flex: 1;
-  margin: 15px 0;
 `;
 
 export const Item = styled.TouchableOpacity`
