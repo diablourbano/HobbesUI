@@ -1,12 +1,13 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { map } from 'lodash';
-import { HOBBESUI } from '../utils/constants';
-import { COLORS } from '../utils/variables';
-import { Welcome , CustomDrawer, Hobbes } from '../index';
-import { styleGuides, drawerItems } from './navigationUtils';
-import { navigationRef, isNavigationReadyRef } from './refs';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {map} from 'lodash';
+import {HOBBESUI} from '../utils/constants';
+import {Welcome} from '../ui/Welcome';
+import {CustomDrawer} from '../ui/drawer';
+import {Hobbes} from './hobbes';
+import {drawerItems} from './navigationUtils';
+import {navigationRef, isNavigationReadyRef} from './refs';
 import '../../../styleguidesToLoad';
 
 const components = Hobbes.uiComponents();
@@ -23,7 +24,7 @@ const customItems = [
 const Drawer = createDrawerNavigator();
 
 export const HobbesNavigator = props => {
-  const { onLeaveHobbes } = props;
+  const {onLeaveHobbes} = props;
 
   return (
     <NavigationContainer
@@ -45,15 +46,15 @@ export const HobbesNavigator = props => {
         )}
       >
         <Drawer.Screen
-          options={{ headerTitle: null }}
+          options={{headerTitle: null}}
           key={HOBBESUI}
           name={HOBBESUI}
           component={Welcome}
         />
 
-        {map(components, ({ id: ScreenId, component: ScreenComponent }) => (
+        {map(components, ({id: ScreenId, component: ScreenComponent}) => (
           <Drawer.Screen
-            options={{ headerTitle: null }}
+            options={{headerTitle: null}}
             key={ScreenId}
             name={ScreenId}
           >

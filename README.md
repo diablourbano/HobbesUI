@@ -52,7 +52,7 @@ _`*.hobbes.js` extension is just a suggestion to differentiate your source code 
 You need to set your app to recognize *hobbesui* as part of your app:
 
 ```
-import { HobbesNavigator } from 'hobbesui';
+import { HobbesNavigator } from 'hobbesui/navigation';
 ```
 
 and set it on any part of your app route you consider relevant and configure your app to be able to access it.
