@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash';
+import { isEmpty, findIndex } from 'lodash';
 
 const components = [];
 
@@ -12,13 +12,26 @@ export const Hobbes = {
     if (!isValidId || !isValidComponent) return;
 
     const { id, group, title, parent, component } = config;
-    components.push({
-      id,
-      parent,
-      group,
-      title,
-      component,
-    });
+
+    const existAtIndex = findIndex(components, { id });
+
+    if (existAtIndex > -1) {
+      components[existAtIndex] = ({
+        id,
+        parent,
+        group,
+        title,
+        component,
+      });
+    } else {
+      components.push({
+        id,
+        parent,
+        group,
+        title,
+        component,
+      });
+    }
   },
 
   uiComponents: () => {
