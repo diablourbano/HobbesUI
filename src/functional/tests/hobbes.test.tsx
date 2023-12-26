@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Functional, type IConfig} from '../index';
+import {functional} from '../index';
+import {type IConfig} from '../../interfaces';
 
 const SampleCompNoProps = () => (
   <View>
@@ -22,31 +23,31 @@ const config: IConfig = {
 };
 
 afterEach(() => {
-  Functional.reset();
+  functional.reset();
 });
 
-describe('Functional add components', () => {
+describe('functional add components', () => {
   it('should add a view component if config is correct', () => {
-    expect(Functional.add(config)).toEqual([config]);
+    expect(functional.add(config)).toEqual([config]);
   });
 
   it('should not add a view component if config.id exists', () => {
-    Functional.add(config);
+    functional.add(config);
 
     expect(() => {
-      Functional.add(config);
+      functional.add(config);
     }).toThrow(`Component with id ${config.id} already exists`);
   });
 
   it('should add a view component if config.id !exists', () => {
-    Functional.add(config);
+    functional.add(config);
 
     const config2: IConfig = {
       ...config,
       id: 'other-id',
     };
 
-    expect(Functional.add(config2)).toEqual([config, config2]);
+    expect(functional.add(config2)).toEqual([config, config2]);
   });
 
   it('should not add a view component if config.id null or undefined', () => {
@@ -55,7 +56,7 @@ describe('Functional add components', () => {
       id: '',
     };
 
-    expect(Functional.add(config2)).toEqual([]);
+    expect(functional.add(config2)).toEqual([]);
   });
 
   it('should return the components to render structured by parent, group', () => {
@@ -78,12 +79,12 @@ describe('Functional add components', () => {
       group: 'other_group',
     };
 
-    Functional.add(config);
-    Functional.add(config2);
-    Functional.add(config3);
-    Functional.add(config4);
+    functional.add(config);
+    functional.add(config2);
+    functional.add(config3);
+    functional.add(config4);
 
-    expect(Functional.getStructuredStories()).toEqual({
+    expect(functional.getStructuredStories()).toEqual({
       parent: {
         group: [config, config2],
       },

@@ -1,9 +1,24 @@
 import {group, mapEntries} from 'radash';
-import {type IConfig} from '../interfaces';
+
+export interface IProps {
+  type: string;
+  default?: any;
+  required?: boolean;
+}
+
+export interface IConfig {
+  id: string;
+  parent: string;
+  group: string;
+  title: string;
+  description?: string;
+  component: JSX.Element;
+  props?: {[key: string]: IProps};
+}
 
 let components: IConfig[] = [];
 
-export const functional = {
+export const Hobbes = {
   add: (config: IConfig) => {
     if (components.find(c => c.id === config.id)) {
       throw new Error(`Component with id ${config.id} already exists`);

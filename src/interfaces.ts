@@ -13,3 +13,24 @@ export interface IConfig {
   component: JSX.Element;
   props?: {[key: string]: IProps};
 }
+
+export type styles = {
+  [key: string]: string | number;
+};
+
+export interface IUIprops {
+  logo?: any;
+  appName?: string;
+  appDescription?: string;
+  buttonText?: string;
+  styles?: {
+    container?: styles;
+    logoContainer?: styles;
+    logo?: styles;
+    isoContainer?: styles;
+    isoText?: styles;
+    isoDesc?: styles;
+    button?: styles;
+    buttonText?: styles;
+  };
+}
