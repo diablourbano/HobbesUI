@@ -1,120 +1,21 @@
 import React from 'react';
-import {
-  Dimensions,
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
-import {type IUIprops} from '../interfaces';
-import {uiColors} from './resources';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {hobbesTheme} from '../navigation/theme';
+import {RootDrawerParamList, type IUIprops} from '../interfaces';
+import {Hobbes} from './hobbes';
+import {UIPropsContext} from './context';
 
-const hobbesuiLogo = require('../assets/hobbesui.png');
-const {width} = Dimensions.get('window');
+const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
-const logoSquare = width * 0.6;
-
-const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingBottom: 20,
-  },
-  logoContainer: {
-    flexShrink: 0,
-    flexGrow: 0.4,
-    justifyContent: 'flex-end',
-    paddingBottom: 20,
-  },
-  logo: {
-    width: logoSquare,
-    height: logoSquare,
-  },
-  content: {
-    flexGrow: 0.25,
-    justifyContent: 'space-around',
-  },
-  isoContainer: {
-    marginTop: 32,
-  },
-  isoText: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: uiColors.primary,
-  },
-  isoDesc: {
-    fontSize: 16,
-    color: uiColors.secondary,
-    marginTop: 10,
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: uiColors.note,
-    borderRadius: 6,
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: uiColors.error,
-    textAlign: 'center',
-  },
-});
-
-export const UI = (props: IUIprops) => {
-  const {
-    logo = hobbesuiLogo,
-    appName = 'HobbesUI',
-    appDescription = 'A Rapid Development UI environment',
-    buttonText = 'Open Drawer',
-    styles: customStyles = {},
-  } = props;
-
-  const {
-    container: customContiner = {},
-    logoContainer: customLogoContainer = {},
-    logo: customLogo = {},
-    isoContainer: customIsoContainer = {},
-    isoText: customIsoText = {},
-    isoDesc: customIsoDesc = {},
-    button: customButton = {},
-    buttonText: customButtonText = {},
-  } = customStyles;
-
-  const openSidebar = () => {
-    console.log('openSidebar');
-  };
-
-  return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View style={[styles.container, customContiner]}>
-        <View style={[styles.logoContainer, customLogoContainer]}>
-          <Image style={[styles.logo, customLogo]} source={logo} />
-        </View>
-
-        <View style={styles.content}>
-          <View style={[styles.isoContainer, customIsoContainer]}>
-            <Text style={[styles.isoText, customIsoText]}>{appName}</Text>
-            <Text style={[styles.isoDesc, customIsoDesc]}>
-              {appDescription}
-            </Text>
-          </View>
-
-          <TouchableOpacity
-            style={[styles.button, customButton]}
-            onPress={openSidebar}>
-            <Text style={[styles.buttonText, customButtonText]}>
-              {buttonText.toUpperCase()}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
-};
+export const UI = (props: IUIprops) => (
+  <UIPropsContext.Provider value={props}>
+    <NavigationContainer theme={hobbesTheme}>
+      <Drawer.Navigator
+        initialRouteName="Welcome"
+        screenOptions={{headerShown: false}}>
+        <Drawer.Screen name="Welcome" component={Hobbes} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  </UIPropsContext.Provider>
+);
