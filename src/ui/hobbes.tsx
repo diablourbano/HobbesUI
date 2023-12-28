@@ -1,4 +1,3 @@
-import {DrawerScreenProps} from '@react-navigation/drawer';
 import React, {useContext} from 'react';
 import {
   Dimensions,
@@ -8,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {IUIprops, RootDrawerParamList} from '../interfaces';
+import {IUIprops, TNavProps} from '../interfaces';
 import {UIPropsContext} from './context';
 import {uiColors} from './resources';
 
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Hobbes = (props: DrawerScreenProps<RootDrawerParamList>) => {
+export const Hobbes = (props: TNavProps) => {
   const {navigation} = props;
 
   const uiProps = useContext(UIPropsContext);

@@ -8,11 +8,12 @@ import {
   StyleSheet,
 } from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import {snake} from 'radash';
+import {get, snake} from 'radash';
 import {functional} from '../../functional';
 import {Collapsible} from './collapsible';
 import {uiColors} from '../resources';
 import {HOME} from '../../constants';
+import {IConfig, TSidebarProps, TNavItemsObj} from '../../interfaces';
 
 const logo = require('../../assets/hobbesui.png');
 
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Sidebar = props => {
+export const Sidebar = (props: TSidebarProps) => {
   const {
     onLeaveHobbes,
     navigation: {navigate},
@@ -112,37 +113,43 @@ export const Sidebar = props => {
   const [isSearching, setIsSearching] = useState(false);
   const [navItems, setNavItems] = useState(functional.getStructuredStories());
 
-  const parents = Object.keys(navItems);
+  const getKeysFor = (navItemsObj: TNavItemsObj) => Object.keys(navItemsObj);
+
+  const parents = getKeysFor(navItems as TNavItemsObj);
 
   const navItemsList = parents.map((parent, parentIdx) => {
     const parentKey = snake(parent);
 
-    const groupsKeys = Object.keys(navItems[parent]);
+    const groupsKeys = getKeysFor(navItems[parent] as TNavItemsObj);
 
     const groups = groupsKeys.map((group, groupIdx) => {
       const groupKey = `${parentKey}_${snake(group)}`;
 
-      const componentsKeys = navItems[parent][group];
-      const components = componentsKeys.map((component, compIdx) => {
+      const componentsKeys = get(navItems, `${parent}.{group}`, []);
+      const components = componentsKeys.map((component: IConfig, compIdx) => {
         const componentKey = `${groupKey}_${snake(component.id)}`;
 
         const isFirst = compIdx === 0;
         const isLast = compIdx === componentsKeys.length - 1;
+
+        const stylesWhenFirst = isFirst
+          ? {borderTopWidth: 0}
+          : {borderTopWidth: 1, borderTopColor: '#666'};
+
+        const stylesWhenLast = isLast
+          ? {borderBottomWidth: 0}
+          : {
+              borderBottomWidth: 1,
+              borderBottomColor: '#333',
+            };
 
         return (
           <View
             key={`${componentKey}-container`}
             style={[
               styles.drawerItemContainer,
-              isFirst
-                ? {borderTopWidth: 0}
-                : {borderTopWidth: 1, borderTopColor: '#666'},
-              isLast
-                ? {borderBottomWidth: 0}
-                : {
-                    borderBottomWidth: 1,
-                    borderBottomColor: '#333',
-                  },
+              stylesWhenFirst,
+              stylesWhenLast,
             ]}>
             {selectedItem === component.id && (
               <View
@@ -185,12 +192,9 @@ export const Sidebar = props => {
       );
     });
 
-    const totalComponents = Object.keys(navItems[parent]).reduce(
-      (acc, group) => {
-        return acc + navItems[parent][group].length;
-      },
-      0,
-    );
+    const totalComponents = groupsKeys.reduce((acc, group) => {
+      return acc + get(navItems, `${parent}.${group}`, []).length;
+    }, 0);
 
     return (
       <Collapsible
@@ -216,10 +220,10 @@ export const Sidebar = props => {
     navigate(HOME);
   };
 
-  const hasTerm = (term: string) =>
-    term.toLowerCase().includes(searchText.toLowerCase());
-
   useEffect(() => {
+    const hasTerm = (term: string) =>
+      term.toLowerCase().includes(searchText.toLowerCase());
+
     if (searchText.length > 0) {
       setIsSearching(true);
 
@@ -258,17 +262,13 @@ export const Sidebar = props => {
       </DrawerContentScrollView>
 
       <View style={styles.footerContainer}>
-        <TouchableOpacity
-          style={styles.footerButton}
-          onPress={goToHome}>
+        <TouchableOpacity style={styles.footerButton} onPress={goToHome}>
           <Image style={styles.logo} source={logo} />
           <Text style={styles.footerText}>HOME</Text>
         </TouchableOpacity>
 
         {onLeaveHobbes && (
-          <TouchableOpacity
-            style={styles.footerButton}
-            onPress={onLeaveHobbes}>
+          <TouchableOpacity style={styles.footerButton} onPress={onLeaveHobbes}>
             <Image style={styles.logo} source={logo} />
             <Text style={styles.footerText}>LEAVE</Text>
           </TouchableOpacity>

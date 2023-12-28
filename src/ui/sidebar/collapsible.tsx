@@ -21,18 +21,18 @@ const styles = StyleSheet.create({
   triangle: {
     width: 0,
     height: 0,
-    backgroundColor: "transparent",
-    borderStyle: "solid",
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
     borderLeftWidth: triangleSize,
     borderRightWidth: triangleSize,
     borderBottomWidth: triangleSize,
-    borderLeftColor: "transparent",
-    borderRightColor: "transparent",
-    borderBottomColor: "red",
-    transform: [{ rotate: "180deg" }],
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: 'red',
+    transform: [{rotate: '180deg'}],
   },
   trianglePosition: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 26,
     zIndex: 1,
@@ -175,10 +175,9 @@ export const Collapsible = (props: CollapsibleProps) => {
           },
         ]}>
         <View style={[styles.trianglePosition]}>
-          <View style={[
-            styles.triangle,
-            {borderBottomColor: backgroundColor},
-          ]} />
+          <View
+            style={[styles.triangle, {borderBottomColor: backgroundColor}]}
+          />
         </View>
         {children}
       </Animated.View>

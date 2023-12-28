@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {hobbesTheme} from '../navigation/theme';
 import {RootDrawerParamList, type IUIprops} from '../interfaces';
-import { functional } from '../functional';
+import {functional} from '../functional';
 import {Hobbes} from './hobbes';
 import {Sidebar} from './sidebar';
 import {UIPropsContext} from './context';
-import {HOME} from 'hobbesui/src/constants';
+import {HOME} from '../constants';
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -21,26 +20,24 @@ const Drawer = createDrawerNavigator<RootDrawerParamList>();
 export const UI = (props: IUIprops) => {
   const {onLeaveHobbes} = props;
 
+  const SidebarComp = useCallback(
+    drawerProps => <Sidebar {...drawerProps} onLeaveHobbes={onLeaveHobbes} />,
+    [onLeaveHobbes]
+  );
+
   return (
     <UIPropsContext.Provider value={props}>
-      <NavigationContainer theme={hobbesTheme}>
+      <NavigationContainer>
         <Drawer.Navigator
           initialRouteName={HOME}
           screenOptions={{headerShown: false}}
-          drawerContent={drawerProps => (
-            <Sidebar {...drawerProps} onLeaveHobbes={onLeaveHobbes} />
-          )}>
+          drawerContent={SidebarComp}>
           <Drawer.Screen key={HOME} name={HOME} component={Hobbes} />
 
           {functional.getRawStories().map(({id, component: Comp}) => (
-            <Drawer.Screen
-              key={id}
-              name={id}
-            >
+            <Drawer.Screen key={id} name={id}>
               {_drawerProps => (
-                <SafeAreaView style={styles.safeAreaView}>
-                  {Comp}
-                </SafeAreaView>
+                <SafeAreaView style={styles.safeAreaView}>{Comp}</SafeAreaView>
               )}
             </Drawer.Screen>
           ))}

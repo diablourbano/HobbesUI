@@ -1,3 +1,5 @@
+import {DrawerScreenProps} from '@react-navigation/drawer';
+
 export interface IProps {
   type: string;
   default?: any;
@@ -53,4 +55,16 @@ export interface IUIprops {
 export type RootDrawerParamList = {
   Welcome: undefined;
   [key: string]: undefined;
+};
+
+export type TNavProps = DrawerScreenProps<RootDrawerParamList>;
+
+export type TSidebarProps = {
+  onLeaveHobbes: () => void;
+} & TNavProps;
+
+export type TNavItemsObj = {
+  [key: string]: {
+    [key: string]: any;
+  };
 };

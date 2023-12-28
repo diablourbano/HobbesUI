@@ -114,3 +114,29 @@ describe('functional get components', () => {
     });
   });
 });
+
+describe('functional get raw stories', () => {
+  it('should return the components to render', () => {
+    const config2: IConfigParams = {
+      ...config,
+      id: 'other-id',
+    };
+
+    functional.add(config);
+    functional.add(config2);
+
+    expect(functional.getRawStories()).toEqual([config, config2]);
+  });
+});
+
+describe('functional reset components', () => {
+  it('should reset components', () => {
+    functional.add(config);
+
+    expect(functional.getRawStories()).toEqual([config]);
+
+    functional.reset();
+
+    expect(functional.getRawStories()).toEqual([]);
+  });
+});
