@@ -25,9 +25,10 @@ export const functional = {
 
     return components;
   },
-  getStructuredStories: () =>
+  getRawStories: () => components,
+  getStructuredStories: (stories = components) =>
     mapEntries(
-      group(components, (c: IConfig) => c.parent),
+      group(stories, (c: IConfig) => c.parent),
       (key, parent) => [
         key,
         group(parent as IConfig[], (p: IConfig) => p.group),

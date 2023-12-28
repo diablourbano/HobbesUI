@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, TextInput, View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {snake} from 'radash';
 import {functional} from '../../functional';
@@ -7,6 +7,41 @@ import {Collapsible} from './collapsible';
 import {uiColors} from '../resources';
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: uiColors.primary,
+    paddingTop: 48,
+    paddingBottom: 40,
+  },
+  searchContainer: {
+    height: 100,
+    justifyContent: 'center',
+  },
+  searchInput: {
+    height: 40,
+    marginHorizontal: 18,
+    marginVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 6,
+    backgroundColor: uiColors.primaryLightBackground,
+    color: uiColors.primaryDarkText,
+    fontWeight: '600',
+  },
+  footerContainer: {
+    height: 60,
+    justifyContent: 'center',
+    borderTopWidth: 1,
+    borderTopColor: uiColors.primaryLightBackground,
+  },
+  drawerScrollView: {
+    backgroundColor: uiColors.primary,
+    borderBottomWidth: 1,
+    borderBottomColor: uiColors.primaryDarkShadow,
+  },
+  drawerContentContainer: {
+    backgroundColor: uiColors.primary,
+    paddingTop: 0,
+  },
   drawerItemContainer: {
     height: 60,
     justifyContent: 'center',
@@ -48,7 +83,9 @@ export const Sidebar = props => {
 
   const [selectedItem, setSelectedItem] = useState('home');
 
-  const navItems = functional.getStructuredStories();
+  const [searchText, setSearchText] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+  const [navItems, setNavItems] = useState(functional.getStructuredStories());
 
   const parents = Object.keys(navItems);
 
@@ -69,6 +106,7 @@ export const Sidebar = props => {
 
         return (
           <View
+            key={`${componentKey}-container`}
             style={[
               styles.drawerItemContainer,
               isFirst
@@ -82,7 +120,10 @@ export const Sidebar = props => {
                   },
             ]}>
             {selectedItem === component.id && (
-              <View style={styles.selectedIndicator} />
+              <View
+                key={`${componentKey}-indicator`}
+                style={styles.selectedIndicator}
+              />
             )}
 
             <DrawerItem
@@ -112,6 +153,7 @@ export const Sidebar = props => {
           }}
           isFirst={groupIdx === 0}
           isLast={groupIdx === groupsKeys.length - 1}
+          isSearching={isSearching}
           expandedHeight={components.length * 60}
           children={components}
         />
@@ -138,17 +180,56 @@ export const Sidebar = props => {
         expandedHeight={groups.length * 60 + totalComponents * 60}
         isFirst={parentIdx === 0}
         isLast={parentIdx === parents.length - 1}
+        isSearching={isSearching}
         children={groups}
       />
     );
   });
 
+  const hasTerm = (term: string) =>
+    term.toLowerCase().includes(searchText.toLowerCase());
+
+  useEffect(() => {
+    if (searchText.length > 0) {
+      setIsSearching(true);
+
+      const origNavItems = functional.getRawStories();
+
+      const filteredNavItems = origNavItems.filter(story => {
+        const {parent, group, title} = story;
+
+        return hasTerm(parent) || hasTerm(group) || hasTerm(title);
+      });
+
+      setNavItems(functional.getStructuredStories(filteredNavItems));
+    } else {
+      setIsSearching(false);
+      setNavItems(functional.getStructuredStories());
+    }
+  }, [searchText]);
+
   return (
-    <DrawerContentScrollView
-      {...props}
-      style={{backgroundColor: uiColors.primary}}
-      contentContainerStyle={{backgroundColor: uiColors.primary}}>
-      {navItemsList}
-    </DrawerContentScrollView>
+    <View style={styles.container}>
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search…"
+          placeholderTextColor={uiColors.primaryText}
+          value={searchText}
+          onChangeText={setSearchText}
+        />
+      </View>
+
+      <DrawerContentScrollView
+        {...props}
+        style={styles.drawerScrollView}
+        contentContainerStyle={styles.drawerContentContainer}>
+        {navItemsList}
+      </DrawerContentScrollView>
+
+      <View style={styles.footerContainer}>
+        <Text style={{color: uiColors.white, marginLeft: 18}}>Hobbes</Text>
+      </View>
+    </View>
   );
 };

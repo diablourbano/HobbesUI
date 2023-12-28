@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Animated, TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import {uiColors} from '../resources';
 
@@ -48,6 +48,7 @@ type CollapsibleProps = {
   topDividerColor?: string;
   isLast?: boolean;
   isFirst?: boolean;
+  isSearching?: boolean;
   styles?: {
     container?: object;
     collapsibleButton?: object;
@@ -68,6 +69,7 @@ export const Collapsible = (props: CollapsibleProps) => {
     topDividerColor = uiColors.primaryLightBackground,
     isLast = false,
     isFirst = false,
+    isSearching = false,
     styles: {
       container: containerStyle = {},
       collapsibleButton: collapsibleButtonStyle = {},
@@ -121,6 +123,16 @@ export const Collapsible = (props: CollapsibleProps) => {
       opacityOut();
     }
   };
+
+  useEffect(() => {
+    if (isSearching) {
+      expand();
+      opacityIn();
+    } else {
+      collapse();
+      opacityOut();
+    }
+  }, [isSearching]);
 
   return (
     <View
