@@ -47,9 +47,10 @@ export type WelcomeProps = {
 
 export interface IUIprops {
   welcome?: WelcomeProps;
-  onLeaveHobbes: () => void;
+  onLeaveHobbes?: () => void;
 }
 
 export type RootDrawerParamList = {
   Welcome: undefined;
+  [key: string]: undefined;
 };

@@ -1,10 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import {Text, TextInput, View, StyleSheet} from 'react-native';
+import {
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {snake} from 'radash';
 import {functional} from '../../functional';
 import {Collapsible} from './collapsible';
 import {uiColors} from '../resources';
+import {HOME} from '../../constants';
+
+const logo = require('../../assets/hobbesui.png');
 
 const styles = StyleSheet.create({
   container: {
@@ -27,16 +37,8 @@ const styles = StyleSheet.create({
     color: uiColors.primaryDarkText,
     fontWeight: '600',
   },
-  footerContainer: {
-    height: 60,
-    justifyContent: 'center',
-    borderTopWidth: 1,
-    borderTopColor: uiColors.primaryLightBackground,
-  },
   drawerScrollView: {
     backgroundColor: uiColors.primary,
-    borderBottomWidth: 1,
-    borderBottomColor: uiColors.primaryDarkShadow,
   },
   drawerContentContainer: {
     backgroundColor: uiColors.primary,
@@ -72,6 +74,29 @@ const styles = StyleSheet.create({
   },
   groupChildrenContainer: {
     backgroundColor: uiColors.contentBackground,
+  },
+  footerContainer: {
+    height: 60,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 18,
+    paddingTop: 4,
+  },
+  footerButton: {
+    height: 60,
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    height: 40,
+    width: 40,
+  },
+  footerText: {
+    color: uiColors.primaryText,
+    fontSize: 12,
+    fontWeight: '600',
+    marginTop: 4,
   },
 });
 
@@ -186,6 +211,11 @@ export const Sidebar = props => {
     );
   });
 
+  const goToHome = () => {
+    setSelectedItem('home');
+    navigate(HOME);
+  };
+
   const hasTerm = (term: string) =>
     term.toLowerCase().includes(searchText.toLowerCase());
 
@@ -228,7 +258,21 @@ export const Sidebar = props => {
       </DrawerContentScrollView>
 
       <View style={styles.footerContainer}>
-        <Text style={{color: uiColors.white, marginLeft: 18}}>Hobbes</Text>
+        <TouchableOpacity
+          style={styles.footerButton}
+          onPress={goToHome}>
+          <Image style={styles.logo} source={logo} />
+          <Text style={styles.footerText}>HOME</Text>
+        </TouchableOpacity>
+
+        {onLeaveHobbes && (
+          <TouchableOpacity
+            style={styles.footerButton}
+            onPress={onLeaveHobbes}>
+            <Image style={styles.logo} source={logo} />
+            <Text style={styles.footerText}>LEAVE</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

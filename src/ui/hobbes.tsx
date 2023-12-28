@@ -2,7 +2,6 @@ import {DrawerScreenProps} from '@react-navigation/drawer';
 import React, {useContext} from 'react';
 import {
   Dimensions,
-  SafeAreaView,
   View,
   Text,
   StyleSheet,
@@ -19,9 +18,6 @@ const {width} = Dimensions.get('window');
 const logoSquare = width * 0.6;
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -100,29 +96,25 @@ export const Hobbes = (props: DrawerScreenProps<RootDrawerParamList>) => {
   };
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View style={[styles.container, customContiner]}>
-        <View style={[styles.logoContainer, customLogoContainer]}>
-          <Image style={[styles.logo, customLogo]} source={logo} />
-        </View>
-
-        <View style={styles.content}>
-          <View style={[styles.isoContainer, customIsoContainer]}>
-            <Text style={[styles.isoText, customIsoText]}>{appName}</Text>
-            <Text style={[styles.isoDesc, customIsoDesc]}>
-              {appDescription}
-            </Text>
-          </View>
-
-          <TouchableOpacity
-            style={[styles.button, customButton]}
-            onPress={openSidebar}>
-            <Text style={[styles.buttonText, customButtonText]}>
-              {buttonText.toUpperCase()}
-            </Text>
-          </TouchableOpacity>
-        </View>
+    <View style={[styles.container, customContiner]}>
+      <View style={[styles.logoContainer, customLogoContainer]}>
+        <Image style={[styles.logo, customLogo]} source={logo} />
       </View>
-    </SafeAreaView>
+
+      <View style={styles.content}>
+        <View style={[styles.isoContainer, customIsoContainer]}>
+          <Text style={[styles.isoText, customIsoText]}>{appName}</Text>
+          <Text style={[styles.isoDesc, customIsoDesc]}>{appDescription}</Text>
+        </View>
+
+        <TouchableOpacity
+          style={[styles.button, customButton]}
+          onPress={openSidebar}>
+          <Text style={[styles.buttonText, customButtonText]}>
+            {buttonText.toUpperCase()}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
