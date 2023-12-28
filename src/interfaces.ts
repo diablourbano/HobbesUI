@@ -14,6 +14,16 @@ export interface IConfig {
   props?: {[key: string]: IProps};
 }
 
+export interface IConfigParams {
+  id: string;
+  parent?: string | null;
+  group?: string | null;
+  title: string;
+  description?: string;
+  component: JSX.Element;
+  props?: {[key: string]: IProps};
+}
+
 export type Styles = {
   [key: string]: string | number;
 };
@@ -37,6 +47,7 @@ export type WelcomeProps = {
 
 export interface IUIprops {
   welcome?: WelcomeProps;
+  onLeaveHobbes: () => void;
 }
 
 export type RootDrawerParamList = {

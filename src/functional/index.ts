@@ -1,10 +1,10 @@
 import {group, mapEntries} from 'radash';
-import {type IConfig} from '../interfaces';
+import {type IConfigParams, type IConfig} from '../interfaces';
 
 let components: IConfig[] = [];
 
 export const functional = {
-  add: (config: IConfig) => {
+  add: (config: IConfigParams) => {
     if (components.find(c => c.id === config.id)) {
       throw new Error(`Component with id ${config.id} already exists`);
     }
@@ -13,7 +13,15 @@ export const functional = {
       return components;
     }
 
-    components.push(config);
+    if (!config.parent) {
+      config.parent = 'NOPARENT';
+    }
+
+    if (!config.group) {
+      config.group = 'NOGROUP';
+    }
+
+    components.push(config as IConfig);
 
     return components;
   },
