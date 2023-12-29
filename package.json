@@ -26,11 +26,10 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace hobbesui-example",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src/ ./example/",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src/",
     "clean": "del-cli lib",
     "prepare": "bob build",
     "build:local": "yarn pack; tar -xvf package.tgz; rm -rf package.tgz",
@@ -96,7 +95,7 @@
     "react-native-screens": "^3.29.0"
   },
   "workspaces": [
-    "example"
+    "hobbesui"
   ],
   "packageManager": "yarn@3.6.1",
   "engines": {
