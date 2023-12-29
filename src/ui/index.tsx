@@ -36,8 +36,10 @@ export const UI = (props: IUIprops) => {
 
           {functional.getRawStories().map(({id, component: Comp}) => (
             <Drawer.Screen key={id} name={id}>
-              {_drawerProps => (
-                <SafeAreaView style={styles.safeAreaView}>{Comp}</SafeAreaView>
+              {drawerProps => (
+                <SafeAreaView style={styles.safeAreaView}>
+                  <Comp {...drawerProps} />
+                </SafeAreaView>
               )}
             </Drawer.Screen>
           ))}

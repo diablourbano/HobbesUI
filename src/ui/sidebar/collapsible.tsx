@@ -58,6 +58,7 @@ type CollapsibleProps = {
   children: JSX.Element[];
 };
 
+/* eslint-disable react-hooks/exhaustive-deps */
 export const Collapsible = (props: CollapsibleProps) => {
   const {
     collapsibleKey,
@@ -124,6 +125,18 @@ export const Collapsible = (props: CollapsibleProps) => {
     }
   };
 
+  const stylesWhenFirst = isFirst
+    ? {borderTopWidth: 0}
+    : {borderTopWidth: 1, borderTopColor: topDividerColor};
+
+  const stylesWhenLast =
+    isLast || !isCollapsed
+      ? {borderBottomWidth: 0}
+      : {
+          borderBottomWidth: 1,
+          borderBottomColor: bottomDividerColor,
+        };
+
   useEffect(() => {
     if (isSearching) {
       expand();
@@ -139,15 +152,8 @@ export const Collapsible = (props: CollapsibleProps) => {
       key={`${collapsibleKey}-container`}
       style={[
         styles.container,
-        isFirst
-          ? {borderTopWidth: 0}
-          : {borderTopWidth: 1, borderTopColor: topDividerColor},
-        isLast || !isCollapsed
-          ? {borderBottomWidth: 0}
-          : {
-              borderBottomWidth: 1,
-              borderBottomColor: bottomDividerColor,
-            },
+        stylesWhenFirst,
+        stylesWhenLast,
         containerStyle,
         {backgroundColor},
       ]}>

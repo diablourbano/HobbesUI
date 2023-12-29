@@ -6,24 +6,19 @@ export interface IProps {
   required?: boolean;
 }
 
-export interface IConfig {
-  id: string;
-  parent: string;
-  group: string;
-  title: string;
-  description?: string;
-  component: JSX.Element;
-  props?: {[key: string]: IProps};
-}
-
 export interface IConfigParams {
   id: string;
   parent?: string | null;
   group?: string | null;
   title: string;
   description?: string;
-  component: JSX.Element;
+  component: (props: any) => JSX.Element;
   props?: {[key: string]: IProps};
+}
+
+export interface IConfig extends IConfigParams {
+  parent: string;
+  group: string;
 }
 
 export type Styles = {
