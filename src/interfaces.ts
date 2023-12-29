@@ -63,3 +63,30 @@ export type TNavItemsObj = {
     [key: string]: any;
   };
 };
+
+export type CollapsibleProps = {
+  collapsibleKey: string;
+  label: string;
+  backgroundColor?: string;
+  expandedHeight: number;
+  bottomDividerColor?: string;
+  topDividerColor?: string;
+  isLast?: boolean;
+  isFirst?: boolean;
+  isSearching?: boolean;
+  styles?: {
+    container?: object;
+    collapsibleButton?: object;
+    collapsibleText?: object;
+    childrenContainer?: object;
+  };
+  children: JSX.Element[] | JSX.Element;
+};
+
+export type NavItemsListProps = {
+  isSearching: boolean;
+  navItems: TNavItemsObj;
+  selectedItem: string;
+  parent?: string;
+  onSelectItem: (itemId: string) => void;
+};

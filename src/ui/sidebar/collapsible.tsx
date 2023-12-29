@@ -1,5 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {Animated, TouchableOpacity, View, Text, StyleSheet} from 'react-native';
+import {CollapsibleProps} from '../../interfaces';
 import {uiColors} from '../resources';
 
 const triangleSize = 12;
@@ -39,25 +40,6 @@ const styles = StyleSheet.create({
   },
 });
 
-type CollapsibleProps = {
-  collapsibleKey: string;
-  label: string;
-  backgroundColor?: string;
-  expandedHeight: number;
-  bottomDividerColor?: string;
-  topDividerColor?: string;
-  isLast?: boolean;
-  isFirst?: boolean;
-  isSearching?: boolean;
-  styles?: {
-    container?: object;
-    collapsibleButton?: object;
-    collapsibleText?: object;
-    childrenContainer?: object;
-  };
-  children: JSX.Element[];
-};
-
 /* eslint-disable react-hooks/exhaustive-deps */
 export const Collapsible = (props: CollapsibleProps) => {
   const {
@@ -83,45 +65,29 @@ export const Collapsible = (props: CollapsibleProps) => {
   const collapsibleAnim = useRef(new Animated.Value(0)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
 
-  const collapse = () => {
+  const toggleCollapse = (collapse: boolean) => {
     Animated.timing(collapsibleAnim, {
-      toValue: 0,
-      duration: 600,
+      toValue: collapse ? 0 : 1,
+      duration: collapse ? 600 : 500,
       useNativeDriver: false,
-    }).start(() => setIsCollapsed(true));
+    }).start(() => setIsCollapsed(collapse));
   };
 
-  const expand = () => {
-    Animated.timing(collapsibleAnim, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: false,
-    }).start(() => setIsCollapsed(false));
-  };
-
-  const opacityIn = () => {
+  const toggleOpacity = (opacityIn: boolean) => {
     Animated.timing(opacityAnim, {
-      toValue: 1,
-      duration: 300,
+      toValue: opacityIn ? 1 : 0,
+      duration: opacityIn ? 300 : 1400,
       useNativeDriver: false,
     }).start();
   };
 
-  const opacityOut = () => {
-    Animated.timing(opacityAnim, {
-      toValue: 0,
-      duration: 1400,
-      useNativeDriver: false,
-    }).start();
-  };
-
-  const toggleParent = () => {
-    if (isCollapsed) {
-      expand();
-      opacityIn();
+  const toggleColapseState = (shouldCollapse: boolean) => {
+    if (shouldCollapse) {
+      toggleCollapse(false);
+      toggleOpacity(true);
     } else {
-      collapse();
-      opacityOut();
+      toggleCollapse(true);
+      toggleOpacity(false);
     }
   };
 
@@ -138,13 +104,7 @@ export const Collapsible = (props: CollapsibleProps) => {
         };
 
   useEffect(() => {
-    if (isSearching) {
-      expand();
-      opacityIn();
-    } else {
-      collapse();
-      opacityOut();
-    }
+    toggleColapseState(isSearching);
   }, [isSearching]);
 
   return (
@@ -159,7 +119,7 @@ export const Collapsible = (props: CollapsibleProps) => {
       ]}>
       <TouchableOpacity
         key={`${collapsibleKey}-button`}
-        onPress={toggleParent}
+        onPress={() => toggleColapseState(isCollapsed)}
         style={[styles.collapsibleButton, collapsibleButtonStyle]}>
         <Text
           key={`${collapsibleKey}-buttonText`}
