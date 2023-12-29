@@ -1,2 +1,0 @@
-// HOBBESUI FLOW
-export const HOBBESUI = 'HOBBESUI';
