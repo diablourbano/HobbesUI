@@ -14,7 +14,8 @@ import {HOME} from '../../constants';
 import {TSidebarProps} from '../../interfaces';
 import {NavItemsList} from './parent';
 
-const logo = require('../../assets/hobbesui.png');
+const homeIcon = require('../../assets/home.png');
+const logoutIcon = require('../../assets/logout.png');
 
 const styles = StyleSheet.create({
   container: {
@@ -57,15 +58,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
-    height: 40,
-    width: 40,
+  icon: {
+    height: 36,
+    width: 36,
   },
   footerText: {
     color: uiColors.primaryText,
-    fontSize: 12,
-    fontWeight: '600',
-    marginTop: 4,
+    fontSize: 16,
+    fontWeight: '700',
+    marginTop: 6,
   },
 });
 
@@ -139,14 +140,14 @@ export const Sidebar = (props: TSidebarProps) => {
 
       <View style={styles.footerContainer}>
         <TouchableOpacity style={styles.footerButton} onPress={goToHome}>
-          <Image style={styles.logo} source={logo} />
-          <Text style={styles.footerText}>HOME</Text>
+          <Image style={styles.icon} source={homeIcon} />
+          <Text style={styles.footerText}>home</Text>
         </TouchableOpacity>
 
         {onLeaveHobbes && (
           <TouchableOpacity style={styles.footerButton} onPress={onLeaveHobbes}>
-            <Image style={styles.logo} source={logo} />
-            <Text style={styles.footerText}>LEAVE</Text>
+            <Image style={styles.icon} source={logoutIcon} />
+            <Text style={styles.footerText}>exit</Text>
           </TouchableOpacity>
         )}
       </View>

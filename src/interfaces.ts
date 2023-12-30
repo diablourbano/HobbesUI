@@ -26,14 +26,9 @@ export type Styles = {
 };
 
 export type WelcomeProps = {
-  logo?: any;
-  appName?: string;
   appDescription?: string;
-  buttonText?: string;
   styles?: {
     container?: Styles;
-    logoContainer?: Styles;
-    logo?: Styles;
     isoContainer?: Styles;
     isoText?: Styles;
     isoDesc?: Styles;
