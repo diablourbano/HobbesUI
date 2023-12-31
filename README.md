@@ -3,9 +3,11 @@
 # HobbesUI
 ### _a rapid development environment for UI components_
 
-<img width="350" src="./docsAssets/welcome.png" />
-<img width="350" src="./docsAssets/hobbesui_sidebar.png" />
-<img width="350" src="./docsAssets/hobbesui_storyComp.png" />
+<div style="display: flex;">
+  <img width="250" src="./docsAssets/welcome.png" />
+  <img width="250" src="./docsAssets/hobbesui_sidebar.png" />
+  <img width="250" src="./docsAssets/hobbesui_storyComp.png" />
+</div>
 
 Think of Storybook but simplified and thought for ReactNative from scratch.
 
