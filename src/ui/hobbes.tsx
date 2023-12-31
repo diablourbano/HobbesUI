@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
   },
   blankSpace: {
     flexShrink: 0,
-    flexGrow: 0.5,
+    flexGrow: 0.4,
     justifyContent: 'flex-end',
     paddingBottom: 20,
   },
   content: {
-    flexGrow: 0.4,
+    flexGrow: 0.3,
     justifyContent: 'space-around',
   },
   isoContainer: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 20,
     paddingVertical: 12,
-    backgroundColor: uiColors.primary,
+    backgroundColor: uiColors.error,
     borderRadius: 12,
     alignSelf: 'flex-start',
     transform: [{translateX: -20}],

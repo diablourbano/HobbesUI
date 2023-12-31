@@ -166,7 +166,6 @@ stories.add({
   parent: 'FOO', // optional, default = 'parent'
   group: 'BAR', // optional, default = 'group'
   title: 'my component default state',
-  description: 'some description for this component', // optional
   component: (props => (
     <MyComponent
       {...props /* in case you want to access navigation props */}

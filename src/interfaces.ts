@@ -11,9 +11,7 @@ export interface IConfigParams {
   parent?: string | null;
   group?: string | null;
   title: string;
-  description?: string;
   component: (props: any) => JSX.Element;
-  props?: {[key: string]: IProps};
 }
 
 export interface IConfig extends IConfigParams {

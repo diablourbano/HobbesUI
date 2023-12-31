@@ -14,7 +14,6 @@ const config: IConfigParams = {
   parent: 'parent',
   group: 'group',
   title: 'title',
-  description: 'description',
   component: _props => (
     <View>
       <SampleCompNoProps />
