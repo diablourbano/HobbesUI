@@ -3,6 +3,10 @@
 # HobbesUI
 ### _a rapid development environment for UI components_
 
+<img width="350" src="./docsAssets/welcome.png" />
+<img width="350" src="./docsAssets/hobbesui_sidebar.png" />
+<img width="350" src="./docsAssets/hobbesui_storyComp.png" />
+
 Think of Storybook but simplified and thought for ReactNative from scratch.
 
 React Native development world, even related with reactjs, has important differences, one of those the UI Components velocity development.
@@ -96,12 +100,14 @@ Because mobile environment is different from web, we can’t think of a solution
 
 So there’s a little manual configuration you need to set up, which also gives the freedom to decide under which circumstances you want to include *hobbesui* i.e. only development, also for staging, a different build for the designer, etc.
 
-Add `styleguidesToLoad.js` file to the root of your project, into this file you need to import every file you create to render the components previews, i.e.
+Add `hobbesStories.(js|ts)` file to the root of your project, into this file you need to import every file you create to render the components previews, i.e.
+
+_note: in previous version the name of the file was styleguidesToLoad it has been changed to keep naming consistency_
 
 ```
-import 'components/MyComponent/myComponent.hobbes.js';
-import 'components/MyOtherComponent/myOtherComponent.hobbes.js';
-import 'screens/Login/Login.hobbes.js';
+import 'components/MyComponent/myComponent.hobbes';
+import 'components/MyOtherComponent/myOtherComponent.hobbes';
+import 'screens/Login/Login.hobbes';
 ```
 
 _`*.hobbes.js` extension is just a suggestion to differentiate your source code files from your `hobbesui` files, you could use any convention but be consistent_
@@ -154,7 +160,7 @@ _note: you can use [DevSettings](https://reactnative.dev/docs/devsettings) to in
 `./sampleComp.hobbes.tsx`
 ```
 import React from 'react';
-import { stories } from 'hobbesui/lib/functional';
+import { stories } from 'hobbesui/src/functional';
 import MyComponent from './myComponent';
 
 stories.add({
@@ -186,4 +192,9 @@ _note: this is the id property when you add the component story_
 **It can also be a helpful environment to implement a prototype**
 
 ## Use cases
-Here are some screenshots of what can be implemented to improve your UI development and the communication with the team, including the designer
+Here are some ideas of what can be implemented to improve your UI development and the communication with the team, including the designer.
+
+- Group of `unit components` e.g. button, input, divider
+- Group of `screens` e.g. Login, Activities
+- Group of `resources` e.g. FontFamilies, Icon sets
+- Group of `animations`
