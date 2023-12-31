@@ -31,7 +31,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src/",
     "clean": "del-cli lib",
-    "prepare": "bob build",
+    "prepare": "husky install",
     "build:local": "yarn pack; tar -xvf package.tgz; rm -rf package.tgz",
     "release": "release-it"
   },
@@ -68,6 +68,7 @@
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.3",
     "jest": "^29.7.0",
     "prettier": "^2.0.5",
     "react": "18.2.0",
@@ -85,10 +86,10 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
+    "@react-navigation/drawer": "^6.6.6",
+    "@react-navigation/native": "^6.1.9",
     "react": "*",
     "react-native": "*",
-    "@react-navigation/native": "^6.1.9",
-    "@react-navigation/drawer": "^6.6.6",
     "react-native-gesture-handler": "^2.14.0",
     "react-native-reanimated": "^3.6.1",
     "react-native-safe-area-context": "^4.8.2",
