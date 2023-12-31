@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/diablourbano/HobbesUI/tree/master.svg?style=svg)](https://circleci.com/gh/diablourbano/HobbesUI/tree/master)
-
 # HobbesUI
 ### _a rapid development environment for UI components_
 
@@ -95,8 +93,6 @@ $> npx pod-install ios
 yarn install hobbesui --dev
 ```
 
-_note: if you want to use it with react-navigation v2 please use [v0.0.1](https://github.com/diablourbano/hobbesui/tree/v0.0.1)_
-
 ## Configuration
 Because mobile environment is different from web, we can’t think of a solution like this in terms like storybook or styleguidist - or any similar tool - do. 
 
@@ -104,7 +100,7 @@ So there’s a little manual configuration you need to set up, which also gives 
 
 Add `hobbesStories.(js|ts)` file to the root of your project, into this file you need to import every file you create to render the components previews, i.e.
 
-_note: in previous version the name of the file was styleguidesToLoad it has been changed to keep naming consistency_
+_note: in previous version the name of the file was `styleguidesToLoad` it has been changed to keep naming consistency_
 
 ```
 import 'components/MyComponent/myComponent.hobbes';
