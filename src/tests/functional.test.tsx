@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {functional} from '../index';
-import {type IConfigParams} from '../../interfaces';
+import {stories} from '../functional';
+import {type IConfigParams} from '../interfaces';
 
 const SampleCompNoProps = () => (
   <View>
@@ -23,31 +23,31 @@ const config: IConfigParams = {
 };
 
 afterEach(() => {
-  functional.reset();
+  stories.reset();
 });
 
 describe('functional add components', () => {
   it('should add a view component if config is correct', () => {
-    expect(functional.add(config)).toEqual([config]);
+    expect(stories.add(config)).toEqual([config]);
   });
 
   it('should not add a view component if config.id exists', () => {
-    functional.add(config);
+    stories.add(config);
 
     expect(() => {
-      functional.add(config);
+      stories.add(config);
     }).toThrow(`Component with id ${config.id} already exists`);
   });
 
   it('should add a view component if config.id !exists', () => {
-    functional.add(config);
+    stories.add(config);
 
     const config2: IConfigParams = {
       ...config,
       id: 'other-id',
     };
 
-    expect(functional.add(config2)).toEqual([config, config2]);
+    expect(stories.add(config2)).toEqual([config, config2]);
   });
 
   it('should set parent to NOPARENT and group to NOGROUP if they are null or undefined', () => {
@@ -58,7 +58,7 @@ describe('functional add components', () => {
       group: undefined,
     };
 
-    expect(functional.add(config2)).toEqual([
+    expect(stories.add(config2)).toEqual([
       {
         ...config2,
         parent: 'NOPARENT',
@@ -73,7 +73,7 @@ describe('functional add components', () => {
       id: '',
     };
 
-    expect(functional.add(config2)).toEqual([]);
+    expect(stories.add(config2)).toEqual([]);
   });
 });
 
@@ -98,12 +98,12 @@ describe('functional get components', () => {
       group: 'other_group',
     };
 
-    functional.add(config);
-    functional.add(config2);
-    functional.add(config3);
-    functional.add(config4);
+    stories.add(config);
+    stories.add(config2);
+    stories.add(config3);
+    stories.add(config4);
 
-    expect(functional.getStructuredStories()).toEqual({
+    expect(stories.getStructuredStories()).toEqual({
       parent: {
         group: [config, config2],
       },
@@ -122,21 +122,21 @@ describe('functional get raw stories', () => {
       id: 'other-id',
     };
 
-    functional.add(config);
-    functional.add(config2);
+    stories.add(config);
+    stories.add(config2);
 
-    expect(functional.getRawStories()).toEqual([config, config2]);
+    expect(stories.getRawStories()).toEqual([config, config2]);
   });
 });
 
 describe('functional reset components', () => {
   it('should reset components', () => {
-    functional.add(config);
+    stories.add(config);
 
-    expect(functional.getRawStories()).toEqual([config]);
+    expect(stories.getRawStories()).toEqual([config]);
 
-    functional.reset();
+    stories.reset();
 
-    expect(functional.getRawStories()).toEqual([]);
+    expect(stories.getRawStories()).toEqual([]);
   });
 });

@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
-import {functional} from '../../functional';
+import {stories} from '../../functional';
 import {uiColors} from '../resources';
 import {HOME} from '../../constants';
 import {TSidebarProps} from '../../interfaces';
@@ -80,7 +80,7 @@ export const Sidebar = (props: TSidebarProps) => {
 
   const [searchText, setSearchText] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const [navItems, setNavItems] = useState(functional.getStructuredStories());
+  const [navItems, setNavItems] = useState(stories.getStructuredStories());
 
   const goToHome = () => {
     setSelectedItem('home');
@@ -99,7 +99,7 @@ export const Sidebar = (props: TSidebarProps) => {
     if (searchText.length > 0) {
       setIsSearching(true);
 
-      const origNavItems = functional.getRawStories();
+      const origNavItems = stories.getRawStories();
 
       const filteredNavItems = origNavItems.filter(story => {
         const {parent, group, title} = story;
@@ -107,10 +107,10 @@ export const Sidebar = (props: TSidebarProps) => {
         return hasTerm(parent) || hasTerm(group) || hasTerm(title);
       });
 
-      setNavItems(functional.getStructuredStories(filteredNavItems));
+      setNavItems(stories.getStructuredStories(filteredNavItems));
     } else {
       setIsSearching(false);
-      setNavItems(functional.getStructuredStories());
+      setNavItems(stories.getStructuredStories());
     }
   }, [searchText]);
 

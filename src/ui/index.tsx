@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {RootDrawerParamList, type IUIprops} from '../interfaces';
-import {functional} from '../functional';
+import {stories} from '../functional';
 import {Hobbes} from './hobbes';
 import {Sidebar} from './sidebar';
 import {UIPropsContext} from './context';
@@ -34,7 +34,7 @@ export const UI = (props: IUIprops) => {
           drawerContent={SidebarComp}>
           <Drawer.Screen key={HOME} name={HOME} component={Hobbes} />
 
-          {functional.getRawStories().map(({id, component: Comp}) => (
+          {stories.getRawStories().map(({id, component: Comp}) => (
             <Drawer.Screen key={id} name={id}>
               {drawerProps => (
                 <SafeAreaView style={styles.safeAreaView}>

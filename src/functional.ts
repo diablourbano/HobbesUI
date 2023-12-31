@@ -1,9 +1,9 @@
 import {group, mapEntries} from 'radash';
-import {type IConfigParams, type IConfig} from '../interfaces';
+import {type IConfigParams, type IConfig} from './interfaces';
 
 let components: IConfig[] = [];
 
-export const functional = {
+export const stories = {
   add: (config: IConfigParams) => {
     if (components.find(c => c.id === config.id)) {
       throw new Error(`Component with id ${config.id} already exists`);
@@ -26,9 +26,9 @@ export const functional = {
     return components;
   },
   getRawStories: () => components,
-  getStructuredStories: (stories = components) =>
+  getStructuredStories: (storiesToStruct = components) =>
     mapEntries(
-      group(stories, (c: IConfig) => c.parent),
+      group(storiesToStruct, (c: IConfig) => c.parent),
       (key, parent) => [
         key,
         group(parent as IConfig[], (p: IConfig) => p.group),
