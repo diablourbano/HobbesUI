@@ -1,0 +1,17 @@
+# pack-refs with: peeled fully-peeled sorted 
+88009ddb520a86038d3b74b098be7f3d8665ea28 refs/remotes/origin/dependabot/npm_and_yarn/browserify-sign-4.2.2
+9d6171307bc7c5880299799dcfad4f326cea9293 refs/remotes/origin/dependabot/npm_and_yarn/get-func-name-2.0.2
+ed4065ef575f065b7e60150cd0efa247ec525183 refs/remotes/origin/dependabot/npm_and_yarn/semver-5.7.2
+62a5f05e9842875e0bdd249b1088c4bbf530a56a refs/remotes/origin/release
+47492f29c1d491b6b065d031e721b171d1d62ea7 refs/tags/v0.0.1
+^39e5b1f33f7789cb6ec653c1f3d6ba040c5ce422
+16c12201230cea56071d07ae8a567dbac38c0b48 refs/tags/v0.0.2
+^20421114ae6298114e127ceb273f54d3e696f7df
+21b34430a3514ed1d2a041d937e55d15a6bb994c refs/tags/v0.0.4
+^ebb49d479dd5c7ea5f6d8d066e10a31b35a2a47b
+1c3081d75686b5e9539674e0bef012d587e01403 refs/tags/v0.0.5
+^3ef0465134315999fc911e8bb444edfe9efe06ff
+b102204cb333a104714ccb859555820f97befd6b refs/tags/v0.1.0
+^3ef0465134315999fc911e8bb444edfe9efe06ff
+a7f81db467b5cf7cccd7b25708b3c292ffb99cbd refs/tags/v1.0.0
+^b500aadc8cc5b18d5fd4f5ebd65dacb4ec112a4f
