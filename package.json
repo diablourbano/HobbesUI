@@ -1,6 +1,6 @@
 {
   "name": "hobbesui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Rapid UI develpment react-native tool",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
