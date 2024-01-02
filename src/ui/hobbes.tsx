@@ -73,27 +73,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  buttonRight: {
-    alignSelf: 'flex-end',
-    transform: [{translateX: 20}, {translateY: -30}],
-    backgroundColor: uiColors.error,
-  },
   arrow: {
     width: 24,
     height: 16,
     marginRight: 4,
   },
-  arrowRight: {
-    transform: [{rotate: '180deg'}],
-    marginRight: 0,
-    marginLeft: 4,
-  },
   buttonContent: {
     marginLeft: 4,
-  },
-  buttonContentLeft: {
-    marginLeft: 0,
-    marginRight: 4,
   },
   buttonText: {
     fontSize: 16,
@@ -148,18 +134,6 @@ export const Hobbes = (props: TNavProps) => {
         </View>
 
         <Text style={[styles.isoDesc, customIsoDesc]}>{appDescription}</Text>
-
-        <TouchableOpacity
-          style={[styles.button, styles.buttonRight, customButton]}
-          onPress={openSidebar}>
-          <View style={[styles.buttonContent, styles.buttonContentLeft]}>
-            <Text style={[styles.buttonText, customButtonText]}>OPEN INFO</Text>
-
-            <Text style={styles.buttonDesc}>(swipe from right edge)</Text>
-          </View>
-
-          <Image style={[styles.arrow, styles.arrowRight]} source={arrow} />
-        </TouchableOpacity>
 
         <TouchableOpacity
           style={[styles.button, customButton]}
